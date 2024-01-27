@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 
 import type { Metadata } from 'next';
-import { Albert_Sans } from 'next/font/google';
+import { Albert_Sans } from '@next/font/google';
 
 import Header from '@/components/header';
 import HeaderMobile from '@/components/headerMobile';
@@ -9,10 +9,9 @@ import SideNav from '@/components/sideNav';
 import PageWrapper from '@/components/pageWrapper';
 import MarginWidthWrapper from '@/components/marginWidthWrapper';
 
-const albertSans = Albert_Sans({ 
+const albertSans = Albert_Sans({
 	subsets: ['latin'],
-	weight: ["500"],
-	style: 'normal',
+	// weight: ['400'],
 });
 
 export const metadata: Metadata = {
@@ -27,7 +26,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en'>
-			<body className={`bg-white${albertSans.className}`}>
+			<body className={albertSans.className}>
 				<div className='flex'>
 					<SideNav />
 					<main className='flex-1'>

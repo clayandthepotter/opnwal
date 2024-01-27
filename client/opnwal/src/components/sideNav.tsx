@@ -17,8 +17,8 @@ const SideNav = () => {
 					href='/'
 					className='flex flex-row space-x-3 items-center justify-center md:justify-start md:px-6 border-b border-zinc-200 h-12 w-full'
 				>
-					<span className='h-7 w-7 bg-zinc-300 rounded-lg' />
-					<span className='font-bold text-xl hidden md:flex'>
+					{/* <span className='h-7 w-7 bg-zinc-300 rounded-lg' /> */}
+					<span className='font-bold text-xl hidden md:flex md:text-3xl md:tracking-tighter'>
 						Opnwal
 					</span>
 				</Link>
@@ -81,7 +81,9 @@ const MenuItem = ({ item }: { item: SideNavItem }) => {
 											subItem.path === pathname ? 'font-bold' : ''
 										}`}
 									>
-										<span>{subItem.title}</span>
+										<span className='font-semibold hover:bg-zinc-100 rounded-lg p-2'>
+											{subItem.title}
+										</span>
 									</Link>
 								);
 							})}
