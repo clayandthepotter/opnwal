@@ -1,4 +1,4 @@
-const Invoices = () => {
+const Messages = () => {
 	return (
 		<>
 			<span className='font-bold text-4xl'>Messages</span>
