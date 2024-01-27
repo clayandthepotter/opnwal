@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 
 import type { Metadata } from 'next';
-import { Albert_Sans } from '@next/font/google';
+import { Albert_Sans } from 'next/font/google';
 
 import Header from '@/components/header';
 import HeaderMobile from '@/components/headerMobile';
@@ -15,7 +15,7 @@ const albertSans = Albert_Sans({
 });
 
 export const metadata: Metadata = {
-	title: 'Opnwal',
+	title: 'Opnwal | Dashboard',
 	description: 'Empowering culture and creativity',
 };
 
@@ -26,7 +26,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en'>
-			<body className={albertSans.className}>
+			{<body className={albertSans.className}>
 				<div className='flex'>
 					<SideNav />
 					<main className='flex-1'>
@@ -37,7 +37,7 @@ export default function RootLayout({
 						</MarginWidthWrapper>
 					</main>
 				</div>
-			</body>
+			</body>}
 		</html>
 	);
 }
