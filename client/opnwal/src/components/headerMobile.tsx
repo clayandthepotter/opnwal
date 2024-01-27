@@ -81,7 +81,9 @@ const HeaderMobile = () => {
         {SIDENAV_ITEMS.map((item, index) => {
           const isLastItem = index === SIDENAV_ITEMS.length - 1; // Check  if it's the last item
 
-          return <></>;
+          return (
+            <></>
+          );
         })}
       </motion.ul>
     </motion.nav>
