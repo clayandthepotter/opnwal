@@ -11,4 +11,4 @@ const PaymentDetails = () => {
 		</>
 	);
 }
-export default PaymentDetails
+export default PaymentDetails;

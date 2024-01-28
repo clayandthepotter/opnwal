@@ -24,9 +24,9 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
 		icon: <Icon icon='lucide:credit-card' width='24' height='24' />,
 		submenu: true,
 		subMenuItems: [
-			{ title: 'Payment Details', path: 'payments/' },
-			{ title: 'Invoices', path: 'payments/invoices' },
-			{ title: 'Orders', path: 'payments/orders' },
+			{ title: 'Payment Details', path: '/payments/' },
+			{ title: 'Invoices', path: '/payments/invoices' },
+			{ title: 'Orders', path: '/payments/orders' },
 		],
 	},
 	{
@@ -54,8 +54,8 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
 		icon: <Icon icon='lucide:settings' width='24' height='24' />,
 		submenu: true,
 		subMenuItems: [
-			{ title: 'Account', path: 'settings/account' },
-			{ title: 'Privacy', path: 'settings/privacy' },
+			{ title: 'Account', path: '/settings/account' },
+			{ title: 'Privacy', path: '/settings/privacy' },
 		],
 	},
   {
