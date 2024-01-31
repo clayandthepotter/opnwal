@@ -1,8 +1,6 @@
-'use client';
-
 import '../styles/globals.css';
 
-// import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { Albert_Sans } from 'next/font/google';
 
 import Header from '@/components/header';
@@ -10,29 +8,30 @@ import HeaderMobile from '@/components/headerMobile';
 import SideNav from '@/components/sideNav';
 import PageWrapper from '@/components/pageWrapper';
 import MarginWidthWrapper from '@/components/marginWidthWrapper';
-import LandingPage from '@/components/landingPage'
+import LandingPage from '@/components/landingPage';
+import { signal } from '@preact/signals-react';
 
 const albertSans = Albert_Sans({
 	subsets: ['latin'],
 	// weight: ['400'],
 });
 
-// export const metadata: Metadata = {
-// 	title: 'Opnwal | Dashboard',
-// 	description: 'Empowering culture and creativity',
-// };
+export const metadata: Metadata = {
+	title: 'Opnwal | Dashboard',
+	description: 'Empowering culture and creativity',
+};
 
-
+const isLoggedIn = signal('false');
+console.log(isLoggedIn.value);
 
 export default function RootLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
-	let isLoggedIn = false as boolean;
 	return (
 		<html lang='en'>
-			{isLoggedIn === true ? (
+			{isLoggedIn.value === 'true' ? (
 				<body className={albertSans.className}>
 					<div className='flex'>
 						<SideNav />
@@ -47,7 +46,7 @@ export default function RootLayout({
 				</body>
 			) : (
 				<body>
-					<LandingPage />
+					<LandingPage isLoggedIn={isLoggedIn.value} />
 				</body>
 			)}
 		</html>

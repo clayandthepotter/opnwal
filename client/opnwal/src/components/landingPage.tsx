@@ -1,17 +1,14 @@
 'use client';
 
+import NavMain from '@/components/navMain';
 
-import NavMain from '@/components/navMain'
-
-
-const LandingPage = () => {
-
-  return (
-    <div>
-      <NavMain/>
-      <h1>Landing Page</h1>
-    </div>
-  );
+const LandingPage = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
+	return (
+		<div>
+			<NavMain isLoggedIn={isLoggedIn} />
+			<h1>Landing Page</h1>
+		</div>
+	);
 };
 
-export default LandingPage
+export default LandingPage;
