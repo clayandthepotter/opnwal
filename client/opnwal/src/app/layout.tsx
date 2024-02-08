@@ -17,8 +17,12 @@ const albertSans = Albert_Sans({
 });
 
 export const metadata: Metadata = {
-	title: 'Opnwal | Dashboard',
-	description: 'Empowering culture and creativity',
+	title: {
+		template: 'Opnwal | %s',
+		default: 'Opnwal',
+	},
+	description: 'Opnwal | Where creativity meets commerce.',
+	metadataBase: new URL('https://opnwal.vercel.app'),
 };
 
 const isLoggedIn = signal('false');
