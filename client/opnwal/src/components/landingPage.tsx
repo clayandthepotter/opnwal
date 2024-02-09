@@ -5,6 +5,7 @@ import NavMain from '@/components/navMain';
 import { DM_Sans } from 'next/font/google';
 import Image from 'next/image';
 import { Button } from './ui/button';
+import HeroHeading from '@/components/ui/landingPage/heroHeading';
 
 const dmSans = DM_Sans({
 	subsets: ['latin'],
@@ -52,7 +53,15 @@ const LandingPage = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
 					>
 						{/* HERO SECTION HEADING */}
 
-						<div
+						<HeroHeading />
+
+						{/* <motion.div
+							initial={{ opacity: 0, scale: 0.9, x: -10 }}
+							animate={{ opacity: 1, scale: 1, x: 0 }}
+							transition={{
+								duration: 0.5,
+								ease: [0, 0.71, 0.2, 1.01],
+							}}
 							id='hero-section-heading'
 							className='
 							border border-black rounded-full
@@ -138,7 +147,7 @@ const LandingPage = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
 							>
 								Connecting Creativity and Commerce
 							</h1>
-						</div>
+						</motion.div> */}
 
 						{/* HERO SECTION DESCRIPTION */}
 
