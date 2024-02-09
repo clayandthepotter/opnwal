@@ -3,11 +3,13 @@
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import Dashboard from './../app/page';
 
 const NavMain = ({ isLoggedIn }: { isLoggedIn: string }) => {
 	return (
-		<div className='md:flex md:justify-between items-end w-full md:h-40 md:flex-grow pb-5 border-b border-black align-baseline'>
+		<div
+			className='
+		flex justify-between items-end w-full sm:h-28 md:mt-3 lg:h-36 md:flex-grow sm:pb-3  align-baseline'
+		>
 			{/* DESKTOP LOGO */}
 			<div className='hidden md:flex relative h-full max-w-1/2 justify-start'>
 				<Image
@@ -26,7 +28,7 @@ const NavMain = ({ isLoggedIn }: { isLoggedIn: string }) => {
 			</div>
 
 			{/* MOBILE LOGO */}
-			<div className='md:hidden flex relative h-full max-w-1/2 justify-start'>
+			<div className='md:hidden flex relative h-full max-w-1/2 justify-start self-center py-2'>
 				<Image
 					style={{
 						justifySelf: 'start',
@@ -37,13 +39,13 @@ const NavMain = ({ isLoggedIn }: { isLoggedIn: string }) => {
 					src='/logo/logoMobile.svg'
 					alt='Logo'
 					objectFit='cover'
-					width={206}
-					height={43}
+					width={732}
+					height={153}
 				/>
 			</div>
 
 			{/* DESKTOP NAV */}
-			<nav className='hidden md:flex h-12 items-center'>
+			<nav className='relative hidden md:flex h-12 items-center'>
 				<Link href={'/'}>FAQs</Link>
 				<Button
 					variant='outline'
@@ -61,22 +63,16 @@ const NavMain = ({ isLoggedIn }: { isLoggedIn: string }) => {
 			</nav>
 
 			{/* MOBILE NAV */}
-			{/* <nav className='hidden md:flex h-12 items-center'>
+			<nav className='relative md:hidden flex h-12 items-center self-center sm:self-end'>
 				<Link href={'/'}>FAQs</Link>
 				<Button
 					variant='outline'
-					className='hidden md:flex rounded-full ml-4'
+					className='md:hidden flex rounded-full ml-4'
 					onClick={() => (isLoggedIn = 'true')}
 				>
 					Log in
 				</Button>
-				<Button
-					className='hidden md:flex rounded-full text-primaryBlue ml-3'
-					onClick={() => (isLoggedIn = 'true')}
-				>
-					Sign Up
-				</Button>
-			</nav> */}
+			</nav>
 		</div>
 	);
 };

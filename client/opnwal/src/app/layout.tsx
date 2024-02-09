@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 
 import type { Metadata } from 'next';
-import { Albert_Sans } from 'next/font/google';
+import { DM_Sans } from 'next/font/google';
 
 import Header from '@/components/header';
 import HeaderMobile from '@/components/headerMobile';
@@ -11,9 +11,9 @@ import MarginWidthWrapper from '@/components/marginWidthWrapper';
 import LandingPage from '@/components/landingPage';
 import { signal } from '@preact/signals-react';
 
-const albertSans = Albert_Sans({
+const dmSans = DM_Sans({
 	subsets: ['latin'],
-	// weight: ['400'],
+	weight: ['400'],
 });
 
 export const metadata: Metadata = {
@@ -36,7 +36,7 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			{isLoggedIn.value === 'true' ? (
-				<body className={albertSans.className}>
+				<body className={dmSans.className}>
 					<div className='flex'>
 						<SideNav />
 						<main className='flex-1'>
@@ -49,8 +49,8 @@ export default function RootLayout({
 					</div>
 				</body>
 			) : (
-				<body>
-					<LandingPage isLoggedIn={isLoggedIn.value} />
+				<body className='p-3'>
+					<LandingPage isLoggedIn={isLoggedIn.value === 'true'} />
 				</body>
 			)}
 		</html>

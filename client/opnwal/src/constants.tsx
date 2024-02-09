@@ -1,10 +1,10 @@
-import { Icon } from "@iconify/react"
-import { SideNavItem } from './types'
+import { Icon } from '@iconify/react';
+import { SideNavItem } from './types';
 
 export const SIDENAV_ITEMS: SideNavItem[] = [
 	{
 		title: 'Dashboard',
-		path: '/',
+		path: '/dashboard',
 		icon: <Icon icon='lucide:home' width='24' height='24' />,
 	},
 	{
@@ -47,7 +47,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
 		path: '/messages',
 		icon: <Icon icon='lucide:mail' width='24' height='24' />,
 	},
-	
+
 	{
 		title: 'Settings',
 		path: '/settings',
@@ -58,9 +58,9 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
 			{ title: 'Privacy', path: '/settings/privacy' },
 		],
 	},
-  {
-    title: 'Help',
-    path: '/help',
-    icon: <Icon icon='lucide:help-circle' width='24' height='24'/>
-  }
-]
+	{
+		title: 'Help',
+		path: '/help',
+		icon: <Icon icon='lucide:help-circle' width='24' height='24' />,
+	},
+];
