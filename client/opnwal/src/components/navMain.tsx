@@ -8,7 +8,7 @@ const NavMain = ({ isLoggedIn }: { isLoggedIn: string }) => {
 	return (
 		<div
 			className='
-		flex justify-between items-end w-full sm:h-28 md:mt-3 lg:h-36 md:flex-grow sm:pb-3  align-baseline'
+				flex justify-between items-end w-full sm:h-28 md:mt-3 lg:h-36 md:flex-grow sm:pb-3  align-baseline'
 		>
 			{/* DESKTOP LOGO */}
 			<div className='hidden md:flex relative h-full max-w-1/2 justify-start'>
@@ -45,17 +45,22 @@ const NavMain = ({ isLoggedIn }: { isLoggedIn: string }) => {
 			</div>
 
 			{/* DESKTOP NAV */}
-			<nav className='relative hidden md:flex h-12 items-center'>
-				<Link href={'/'}>FAQs</Link>
+			<nav className='relative hidden md:flex h-12 items-center '>
+				<Link
+					className='hover:-translate-y-0.5 hover:ease-out hover:duration-200 hover:text-primary/70'
+					href={'/'}
+				>
+					FAQs
+				</Link>
 				<Button
 					variant='outline'
-					className='hidden md:flex ml-4'
+					className='hidden md:flex ml-4 hover:-translate-y-0.5 hover:ease-out hover:duration-200'
 					onClick={() => (isLoggedIn = 'true')}
 				>
 					Log in
 				</Button>
 				<Button
-					className='hidden md:flex text-primaryBlue ml-3'
+					className='hidden md:flex text-primaryBlue ml-3 hover:-translate-y-0.5 hover:ease-out hover:duration-200'
 					onClick={() => (isLoggedIn = 'true')}
 				>
 					Sign Up

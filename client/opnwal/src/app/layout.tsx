@@ -13,7 +13,6 @@ import { signal } from '@preact/signals-react';
 
 const dmSans = DM_Sans({
 	subsets: ['latin'],
-	weight: ['400'],
 });
 
 export const metadata: Metadata = {
@@ -49,7 +48,7 @@ export default function RootLayout({
 					</div>
 				</body>
 			) : (
-				<body className='p-3'>
+				<body className={`${dmSans.className}p-3`}>
 					<LandingPage isLoggedIn={isLoggedIn.value === 'true'} />
 				</body>
 			)}

@@ -4,23 +4,21 @@ import Image from 'next/image';
 const Asterisk1 = () => {
 	return (
 		<motion.div
-			whileHover={{ scale: 1.2, rotate: 180 }}
-			transition={{ type: 'spring' }}
+			initial={{ opacity: 0, scale: 0.8 }}
+			animate={{ opacity: 1, scale: 1 }}
+			whileHover={{ scale: 1.2, rotate: 90 }}
+			transition={{ type: 'spring', duration: 1, delay: 0.2 }}
 			className='
         relative
-        transform 
-        hover:rotate-360 
-        transition-transform 
-        duration-1000 
-        ease-in-out
         justify-self-center
-        self-center
+        self-end
         col-start-3
-        col-end-5
-        row-start-5
-        row-end-7
-        max-w-[191px]
+        col-end-6
+        row-start-4
+        row-end-6
+        min-w-max
         h-auto
+				m-11
       '
 		>
 			<Image

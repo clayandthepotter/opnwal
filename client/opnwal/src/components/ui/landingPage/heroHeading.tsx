@@ -14,7 +14,7 @@ const HeroHeading = () => {
 			id='hero-section-heading'
 			className='
 			z-10
-			border border-black rounded-full
+			border-2 border-black rounded-full
 			bg-primaryBlue 
 			relative
 			self-start

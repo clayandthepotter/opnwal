@@ -1,8 +1,17 @@
+import { motion } from 'framer-motion';
 import { Button } from '../button';
 
 const HeroButton = () => {
 	return (
-		<div
+		<motion.div
+			initial={{ opacity: 0, scale: 0.9, y: 10 }}
+			animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+			transition={{
+				delay: 0.2,
+				duration: 0.75,
+				ease: 'easeOut',
+			}}
+			whileTap={{ scale: 0.7 }}
 			className='
         ml-5
         self-center
@@ -60,8 +69,16 @@ const HeroButton = () => {
         2xl:ml-24	
       '
 		>
-			<Button size='xl'>Sign Up</Button>
-		</div>
+			<Button
+				className='
+        hover:-translate-y-0.5
+        hover:ease-out
+        hover:duration-20'
+				size='xl'
+			>
+				Sign Up
+			</Button>
+		</motion.div>
 	);
 };
 export default HeroButton;
