@@ -169,10 +169,85 @@ const LandingPage = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
 								</strong>
 							</div>
 						</div>
+					</motion.div>
 
-						{/* INFO ICON */}
+					{/* INFO CIRCLE */}
 
-						<div></div>
+					<motion.div
+						initial={{ opacity: 0, scale: 0.9, x: -30 }}
+						whileInView={{
+							opacity: 1,
+							scale: 1,
+							x: 0,
+							y: 0,
+						}}
+						transition={{
+							duration: 1.25,
+							ease: 'easeOut',
+						}}
+						viewport={{ once: true }}
+						className='
+							flex
+							z-15
+							self-center
+							items-center
+							justify-self-center
+							justify-center
+							col-start-5
+							col-end-7
+							row-start-2
+							row-end-4
+							mt-12
+							w-[81px]
+							h-[81px]
+							border-2
+							rounded-full
+							border-black
+							bg-white
+							'
+					>
+						<p className='m-auto flex self-center text-center text-3xl font-bold'>
+							i
+						</p>
+					</motion.div>
+
+					{/* SQUIGGLE DIV */}
+
+					<motion.div
+						initial={{ opacity: 0, scale: 0.9, x: 30 }}
+						whileInView={{
+							opacity: 1,
+							scale: 1,
+							x: 0,
+						}}
+						animate={{ opacity: 1, scale: 1 }}
+						whileHover={{ x: 10 }}
+						transition={{
+							type: 'spring',
+							damping: 3,
+							stiffness: 50,
+							restDelta: 0.001,
+						}}
+						viewport={{ once: true }}
+						className='
+							self-start
+							justify-self-start
+							mt-16
+							col-start-6
+							col-end-8
+							row-start-1
+							row-end-1
+					'
+					>
+						<div>
+							<Image
+								className='relative'
+								src='/squiggles/squiggle1.svg'
+								width='272'
+								height='31'
+								alt='Squiggle'
+							/>
+						</div>
 					</motion.div>
 				</section>
 				<h1>Main</h1>

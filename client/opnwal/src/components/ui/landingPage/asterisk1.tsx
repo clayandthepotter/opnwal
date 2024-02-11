@@ -7,7 +7,12 @@ const Asterisk1 = () => {
 			initial={{ opacity: 0, scale: 0.8 }}
 			animate={{ opacity: 1, scale: 1 }}
 			whileHover={{ scale: 1.2, rotate: 90 }}
-			transition={{ type: 'spring', duration: 1, delay: 0.2 }}
+			transition={{
+				type: 'spring',
+				damping: 3,
+				stiffness: 50,
+				restDelta: 0.001,
+			}}
 			className='
         relative
         justify-self-center
