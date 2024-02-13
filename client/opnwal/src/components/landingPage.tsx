@@ -8,7 +8,12 @@ import HeroHeading from '@/components/ui/landingPage/heroHeading';
 import HeroDescription from './ui/landingPage/heroDescription';
 import HeroButton from './ui/landingPage/heroButton';
 import Asterisk1 from './ui/landingPage/asterisk1';
+import Asterisk2 from './ui/landingPage/asterisk2';
 import HeroImage from './ui/landingPage/heroImage';
+import S2MainContent from './ui/landingPage/s2MainContent';
+import InfoCircle from './ui/landingPage/infoCircle';
+import Squiggle1 from './ui/landingPage/squiggle1';
+import Asterisk3 from './ui/landingPage/asterisk3';
 
 const LandingPage = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
 	return (
@@ -54,24 +59,10 @@ const LandingPage = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
 						grid-rows-5
 						place-items-center'
 				>
-					{/* HERO SECTION HEADING */}
-
 					<HeroHeading />
-
-					{/* HERO SECTION DESCRIPTION */}
-
 					<HeroDescription />
-
-					{/* HERO SECTION BUTTON */}
-
 					<HeroButton />
-
-					{/* ASTERISK */}
-
 					<Asterisk1 />
-
-					{/* HERO IMAGE */}
-
 					<HeroImage />
 				</section>
 
@@ -86,171 +77,61 @@ const LandingPage = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
 						place-items-center
 						max-h-[560px]'
 				>
-					{/* SECTION 2 MOTION DIV */}
+					<S2MainContent />
+					<InfoCircle />
+					<Squiggle1 />
+					<Asterisk2 />
+					<Asterisk3 />
+				</section>
 
-					<motion.div
-						initial={{ opacity: 0, scale: 0.8, x: -300 }}
-						whileInView={{
-							opacity: 1,
-							scale: 1,
-							x: 0,
-							y: 0,
-						}}
-						transition={{
-							duration: 1.25,
-							ease: 'easeOut',
-						}}
-						viewport={{ once: true }}
-						className='
-							w-[962px] 
-							h-[500px]
-							self-start
-							justify-self-start
-							rounded-tr-full
-							rounded-br-full
-							bg-primaryBlue
-							border-2
-							border-black
-							p-12
-							'
-					>
-						{/* SECTION CONTENT DIV */}
+				{/* SECTION 3 */}
 
-						<div>
-							{/* SECTION HEADING */}
-
-							<h1
-								id='section2-heading'
-								className='
-									text-7xl
-									max-w-[709px]
-									font-semibold
-									'
-							>
-								What is Opnwal?
-							</h1>
-
-							{/* SECTION DESCRIPTION DIV */}
-
-							<div
-								id='section2-description'
-								className='
-									max-w-[660px]
-									text-lg
-									mt-6
-									ml-4
-								'
-							>
-								<p className='mb-4'>
-									Opnwal is revolutionizing the Art World.
-								</p>
-								<p className='mb-4'>
-									Our cutting-edge platform empowers artists to thrive
-									by selling their art, enables businesses to discover
-									new revenue streams and clientele, and connects fine
-									art collectors with the pulse of local art scenes.
-								</p>
-
-								<p className='mb-4'>
-									You’ll discover that our platform not only
-									simplifies the process of buying and selling art but
-									also fosters a stronger art culture within
-									communities.
-								</p>
-
-								<p className='mb-4'>
-									Experience the future of art commerce with our
-									sleek, user-friendly technology, designed to empower
-									our users.
-								</p>
-
-								<strong>
-									<p>Opnwal is where art meets opportunity.</p>
-								</strong>
-							</div>
-						</div>
-					</motion.div>
-
-					{/* INFO CIRCLE */}
-
-					<motion.div
-						initial={{ opacity: 0, scale: 0.9, x: -30 }}
-						whileInView={{
-							opacity: 1,
-							scale: 1,
-							x: 0,
-							y: 0,
-						}}
-						transition={{
-							duration: 1.25,
-							ease: 'easeOut',
-						}}
-						viewport={{ once: true }}
-						className='
-							flex
-							z-15
-							self-center
-							items-center
-							justify-self-center
-							justify-center
-							col-start-5
-							col-end-7
-							row-start-2
-							row-end-4
-							mt-12
-							w-[81px]
-							h-[81px]
-							border-2
-							rounded-full
-							border-black
-							bg-white
-							'
-					>
-						<p className='m-auto flex self-center text-center text-3xl font-bold'>
-							i
-						</p>
-					</motion.div>
-
-					{/* SQUIGGLE DIV */}
-
-					<motion.div
-						initial={{ opacity: 0, scale: 0.9, x: 30 }}
-						whileInView={{
-							opacity: 1,
-							scale: 1,
-							x: 0,
-						}}
-						animate={{ opacity: 1, scale: 1 }}
-						whileHover={{ x: 10 }}
-						transition={{
-							type: 'spring',
-							damping: 3,
-							stiffness: 50,
-							restDelta: 0.001,
-						}}
-						viewport={{ once: true }}
-						className='
-							self-start
-							justify-self-start
-							mt-16
-							col-start-6
-							col-end-8
-							row-start-1
-							row-end-1
+				<section
+					className='
+						grid
+						grid-cols-8
+						grid-rows-5
+						max-h-[860px]
 					'
+				>
+					<motion.div
+						className='							
+							h-[852px]
+							w-[1246px]
+							border-2
+							border-black
+							rounded-l-full
+							bg-primaryBlue
+							col-start-1
+							col-end-9
+							justify-self-end
+							row-start-1
+							row-end-6
+							self-center
+							grid
+							grid-cols-12
+							grid-rows-12
+						'
 					>
-						<div>
-							<Image
-								className='relative'
-								src='/squiggles/squiggle1.svg'
-								width='272'
-								height='31'
-								alt='Squiggle'
-							/>
+						<div
+							id='s3Image'
+							className='
+								col-start-2
+								row-start-3
+								mt-15
+								relative
+								border-2
+								border-black
+								rounded-l-full
+								h-[630px]
+								w-[617px]
+							'
+						>
+							{/* <Image /> */}
 						</div>
+						<div id='s3Copy'></div>
 					</motion.div>
 				</section>
-				<h1>Main</h1>
 			</main>
 			<footer>
 				<h1>Footer</h1>
