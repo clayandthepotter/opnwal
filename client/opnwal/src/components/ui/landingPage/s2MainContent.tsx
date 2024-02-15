@@ -35,7 +35,7 @@ const S2MainContent = () => {
 			<div>
 				{/* SECTION HEADING */}
 
-				<h1
+				<h2
 					id='section2-heading'
 					className='
 									text-7xl
@@ -44,7 +44,7 @@ const S2MainContent = () => {
 									'
 				>
 					What is Opnwal?
-				</h1>
+				</h2>
 
 				{/* SECTION DESCRIPTION DIV */}
 
@@ -57,9 +57,11 @@ const S2MainContent = () => {
 									ml-4
 								'
 				>
-					<p className='mb-4'>
-						Opnwal is revolutionizing the Art World.
-					</p>
+					<strong>
+						<p className='mb-4'>
+							Opnwal is revolutionizing the Art World.
+						</p>
+					</strong>
 					<p className='mb-4'>
 						Our cutting-edge platform empowers artists to thrive by
 						selling their art, enables businesses to discover new

@@ -3,6 +3,11 @@ import { SideNavItem } from './types';
 
 export const SIDENAV_ITEMS: SideNavItem[] = [
 	{
+		title: 'Feed',
+		path: '/',
+		icon: <Icon icon='lucide:newspaper' width='24' height='24' />,
+	},
+	{
 		title: 'Dashboard',
 		path: '/dashboard',
 		icon: <Icon icon='lucide:home' width='24' height='24' />,
@@ -55,6 +60,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
 		submenu: true,
 		subMenuItems: [
 			{ title: 'Account', path: '/settings/account' },
+			{ title: 'Profile', path: '/settings/profile' },
 			{ title: 'Privacy', path: '/settings/privacy' },
 		],
 	},

@@ -48,7 +48,9 @@ export default function RootLayout({
 					</div>
 				</body>
 			) : (
-				<body className={`${dmSans.className}p-3`}>
+				<body
+					className={`${dmSans.className}p-3 max-w-[1400px] m-auto`}
+				>
 					<LandingPage isLoggedIn={isLoggedIn.value === 'true'} />
 				</body>
 			)}

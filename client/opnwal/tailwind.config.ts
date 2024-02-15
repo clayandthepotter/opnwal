@@ -15,9 +15,6 @@ const config = {
 			padding: '2rem',
 		},
 		extend: {
-			fontFamily: {
-				dmSans: ['var(--font-dm-sans)'],
-			},
 			screens: {
 				mobileSM: '320px',
 				mobileMD: '375px',
@@ -31,7 +28,7 @@ const config = {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
-				primaryBlue: 'hsl(var(--primary-blue))',
+				primaryBlue: 'rgb(var(--primary-blue)/<alpha-value>)',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {

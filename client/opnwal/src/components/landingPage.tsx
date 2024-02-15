@@ -116,18 +116,46 @@ const LandingPage = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
 						<div
 							id='s3Image'
 							className='
+								flex
 								col-start-2
 								row-start-3
+								object-cover
 								mt-15
+								p-0
 								relative
 								border-2
 								border-black
 								rounded-l-full
 								h-[630px]
 								w-[617px]
+								overflow-hidden
+
 							'
 						>
-							{/* <Image /> */}
+							<Image
+								style={{ alignSelf: 'end' }}
+								src='/s3Image/pexels-rfstudio-3817580.jpg'
+								width='667'
+								height='932'
+								alt='Woman with sculpture'
+							/>
+						</div>
+						<div
+							id='s3h2'
+							className='
+								col-start-1
+								col-end-13
+								row-start-1
+								row-end-3
+								self-center
+								mt-7								
+								mr-6
+								justify-self-end
+							'
+						>
+							<h2 className='text-7xl font-semibold'>
+								How does it work?
+							</h2>
 						</div>
 						<div id='s3Copy'></div>
 					</motion.div>
