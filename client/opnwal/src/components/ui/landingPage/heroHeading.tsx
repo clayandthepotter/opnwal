@@ -13,6 +13,7 @@ const HeroHeading = () => {
 			}}
 			id='hero-section-heading'
 			className='
+			drop-shadow-xl
 			z-10
 			border-2 border-black rounded-full
 			bg-primaryBlue 
@@ -67,7 +68,7 @@ const HeroHeading = () => {
 			xl:row-start-1
 			xl:row-end-2
 
-			2xl:w-[803px]
+			2xl:w-[800px]
 			2xl:mt-32
 			2xl:ml-7
 			2xl:py-9
@@ -92,8 +93,8 @@ const HeroHeading = () => {
 								md:w-[425px]
 								lg:text-6xl
 								lg:w-[600px]
-								2xl:text-6xl								
-								2xl:w-[703px]'
+								2xl:text-7xl								
+								2xl:w-[800px]'
 			>
 				Connecting Creativity and Commerce
 			</h1>

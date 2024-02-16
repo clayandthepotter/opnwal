@@ -17,7 +17,7 @@ const InfoCircle = () => {
 			viewport={{ once: true }}
 			className='
 							flex
-							z-15
+							z-20
 							self-center
 							items-center
 							justify-self-center

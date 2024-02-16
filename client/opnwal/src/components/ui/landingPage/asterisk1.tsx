@@ -4,16 +4,17 @@ import Image from 'next/image';
 const Asterisk1 = () => {
 	return (
 		<motion.div
-			initial={{ opacity: 0, scale: 0.8 }}
-			animate={{ opacity: 1, scale: 1 }}
-			whileHover={{ scale: 1.2, rotate: 90 }}
+			initial={{ opacity: 0, y: 30, scale: 0.9 }}
+			animate={{ opacity: 1, scale: 1, y: 0 }}
+			whileHover={{ scale: 1.1, rotate: 90 }}
 			transition={{
 				type: 'spring',
-				damping: 3,
+				damping: 5,
 				stiffness: 50,
 				restDelta: 0.001,
 			}}
 			className='
+				z-20
         relative
         justify-self-center
         self-end

@@ -13,6 +13,7 @@ const HeroImage = () => {
 			}}
 			id='hero-image'
 			className='
+								drop-shadow-2xl
 								z-0
 								self-start
 								justify-self-end

@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
+import { link } from 'fs';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -46,21 +47,21 @@ const NavMain = ({ isLoggedIn }: { isLoggedIn: string }) => {
 
 			{/* DESKTOP NAV */}
 			<nav className='relative hidden md:flex h-12 items-center '>
-				<Link
-					className='hover:-translate-y-0.5 hover:ease-out hover:duration-200 hover:text-primary/70'
-					href={'/'}
+				<Button
+					variant='link'
+					className='hover:text-primary/70 text-base'
 				>
 					FAQs
-				</Link>
+				</Button>
 				<Button
 					variant='outline'
-					className='hidden md:flex ml-4 hover:-translate-y-0.5 hover:ease-out hover:duration-200'
+					className='hidden md:flex ml-2 '
 					onClick={() => (isLoggedIn = 'true')}
 				>
 					Log in
 				</Button>
 				<Button
-					className='hidden md:flex text-primaryBlue ml-3 hover:-translate-y-0.5 hover:ease-out hover:duration-200'
+					className='hidden md:flex text-primaryBlue ml-3 '
 					onClick={() => (isLoggedIn = 'true')}
 				>
 					Sign Up

@@ -87,6 +87,7 @@ const LandingPage = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
 				{/* SECTION 3 */}
 
 				<section
+					id='s3'
 					className='
 						grid
 						grid-cols-8
@@ -95,7 +96,57 @@ const LandingPage = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
 					'
 				>
 					<motion.div
-						className='							
+						initial={{ opacity: 0, scale: 0.9, x: 30 }}
+						whileInView={{
+							opacity: 1,
+							scale: 1,
+							x: 0,
+						}}
+						animate={{ opacity: 1, scale: 1 }}
+						whileHover={{ x: 10 }}
+						transition={{
+							type: 'spring',
+							damping: 3,
+							stiffness: 50,
+							restDelta: 0.001,
+						}}
+						viewport={{ once: true }}
+						className='
+										z-10
+										self-start
+										justify-self-start
+										mt-14
+										ml-20
+										col-start-1
+										col-end-3
+										row-start-1
+										row-end-2
+								'
+					>
+						<Image
+							className='relative'
+							src='/squiggles/squiggle1.svg'
+							width='272'
+							height='31'
+							alt='Squiggle'
+						/>
+					</motion.div>
+					<motion.div
+						initial={{ opacity: 0, scale: 0.9, y: 50 }}
+						whileInView={{
+							opacity: 1,
+							scale: 1,
+							x: 0,
+							y: 0,
+						}}
+						transition={{
+							duration: 1.25,
+							ease: 'easeOut',
+						}}
+						viewport={{ once: true }}
+						className='	
+							drop-shadow-2xl	
+							z-14					
 							h-[852px]
 							w-[1246px]
 							border-2
@@ -118,9 +169,9 @@ const LandingPage = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
 							className='
 								flex
 								col-start-2
-								row-start-3
+								row-start-1
 								object-cover
-								mt-15
+								mt-40
 								p-0
 								relative
 								border-2
@@ -153,12 +204,78 @@ const LandingPage = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
 								justify-self-end
 							'
 						>
-							<h2 className='text-7xl font-semibold'>
+							<h2 className='text-8xl font-semibold'>
 								How does it work?
 							</h2>
 						</div>
-						<div id='s3Copy'></div>
+						<div
+							id='s3Copy'
+							className='
+								col-start-8
+								col-end-13
+								max-w-[477px]
+								ml-7
+								mt-3
+								text-xl
+							'
+						>
+							<p className='mb-2'>
+								<strong>For Artists:</strong>
+							</p>
+							<p className='mb-9'>
+								Opnwal offers artists a unique opportunity to sell
+								their art on our platform. By simply creating an
+								account, uploading their work, and connecting with
+								businesses for consignment opportunities, Opnwal
+								enhances their exposure, income, and network.
+							</p>
+							<p className='mb-2'>
+								<strong>For Businesses:</strong>
+							</p>
+							<p className='mb-9'>
+								Businesses can engage with artists, agree on
+								consignment terms, and earn commissions with Opnwal by
+								integrating themselves into the local art scene,
+								attracting unique visitors, and generating extra
+								revenue.
+							</p>
+							<p className='mb-2'>
+								<strong>For Collectors:</strong>
+							</p>
+							<p className='mb-9'>
+								Collectors, who are crucial for the marketplace, enjoy
+								a streamlined art shopping experience with advanced
+								search filters and the option to view art in person,
+								ensuring a perfect addition to their collections.
+							</p>
+							<strong>
+								<p>Opnwal simplifies the art buying experience.</p>
+							</strong>
+						</div>
 					</motion.div>
+				</section>
+
+				{/* FAQs SECTION */}
+
+				<section
+					id='faqs'
+					className='
+						h-[1100px]
+						flex
+						m-auto
+						'
+				>
+					<div
+						id='faqsContentDiv'
+						className='
+							h-[900px]
+						'
+					>
+						<div id='s4header'>
+							<h2>FAQs</h2>
+						</div>
+						<div id='faqsDiv'></div>
+					</div>
 				</section>
 			</main>
 			<footer>

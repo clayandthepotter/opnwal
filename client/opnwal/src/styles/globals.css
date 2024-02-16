@@ -4,6 +4,38 @@
 
 @layer base {
 	:root {
+		--body-background: rgb(228, 228, 231)
+				radial-gradient(
+					at 17.74% 89.67%,
+					rgb(186, 230, 253) 0px,
+					transparent 63%
+				),
+			radial-gradient(
+				at 44.51% 50.83%,
+				rgb(221, 214, 254) 0px,
+				transparent 67%
+			),
+			radial-gradient(
+				at 58.78% 18.5%,
+				rgb(229, 229, 229) 0px,
+				transparent 100%
+			),
+			radial-gradient(
+				at 86.33% 84%,
+				rgb(103, 232, 249) 0px,
+				transparent 71%
+			),
+			radial-gradient(
+				at 15% 1%,
+				rgb(249, 168, 212) 0px,
+				transparent 54%
+			),
+			radial-gradient(
+				at 86.77% 13.33%,
+				rgb(94, 234, 212) 0px,
+				transparent 28%
+			);
+
 		--primary-blue: 120 216 249;
 
 		--background: 0 0% 100%;
@@ -11,12 +43,6 @@
 
 		--card: 0 0% 100%;
 		--card-foreground: 240 10% 3.9%;
-
-		--outline-button-background: linear-gradient(
-			90deg,
-			hsl(var(--primary) / 0.1) 0%,
-			hsl(var(--primary) / 0.1) 100%
-		);
 
 		--popover: 0 0% 100%;
 		--popover-foreground: 240 10% 3.9%;

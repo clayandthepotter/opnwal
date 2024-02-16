@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const S2MainContent = () => {
 	return (
 		<motion.div
-			initial={{ opacity: 0, scale: 0.8, x: -300 }}
+			initial={{ opacity: 0, scale: 0.9, y: 50 }}
 			whileInView={{
 				opacity: 1,
 				scale: 1,
@@ -18,16 +18,17 @@ const S2MainContent = () => {
 			}}
 			viewport={{ once: true }}
 			className='
+							drop-shadow-2xl
 							w-[962px] 
 							h-[500px]
 							self-start
 							justify-self-start
-							rounded-tr-full
-							rounded-br-full
+							rounded-r-full
 							bg-primaryBlue
 							border-2
 							border-black
-							p-12
+							px-12
+							py-6
 							'
 		>
 			{/* SECTION CONTENT DIV */}
@@ -38,8 +39,8 @@ const S2MainContent = () => {
 				<h2
 					id='section2-heading'
 					className='
-									text-7xl
-									max-w-[709px]
+									text-8xl
+									max-w-[800px]
 									font-semibold
 									'
 				>

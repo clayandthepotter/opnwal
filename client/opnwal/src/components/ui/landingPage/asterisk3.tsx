@@ -14,6 +14,7 @@ const Asterisk3 = () => {
 				restDelta: 0.001,
 			}}
 			className='
+							z-20
 							self-center
 							justify-self-end
 							mt-20

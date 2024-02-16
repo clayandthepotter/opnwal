@@ -69,15 +69,7 @@ const HeroButton = () => {
         2xl:ml-24	
       '
 		>
-			<Button
-				className='
-        hover:-translate-y-0.5
-        hover:ease-out
-        hover:duration-20'
-				size='xl'
-			>
-				Sign Up
-			</Button>
+			<Button size='xl'>Sign Up</Button>
 		</motion.div>
 	);
 };
