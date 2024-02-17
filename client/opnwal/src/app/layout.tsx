@@ -49,7 +49,7 @@ export default function RootLayout({
 				</body>
 			) : (
 				<body
-					className={`${dmSans.className}p-3 max-w-[1400px] m-auto bg-gradient-to-br from-sky-100 via-pink-100 to-amber-100`}
+					className={`${dmSans.className}p-3 max-w-[1400px] m-auto bg-gradient-to-br from-sky-200 via-pink-200 to-amber-200`}
 				>
 					<LandingPage isLoggedIn={isLoggedIn.value === 'true'} />
 				</body>

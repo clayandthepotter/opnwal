@@ -3,7 +3,7 @@ import {
 	AccordionContent,
 	AccordionItem,
 	AccordionTrigger,
-} from '@/components/ui/accordion';
+} from '@/components/ui/accordionEdit';
 import React, { Key } from 'react';
 
 type FAQ = {

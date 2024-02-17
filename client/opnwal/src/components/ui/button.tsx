@@ -14,7 +14,9 @@ const buttonVariants = cva(
 				destructive:
 					'bg-destructive text-destructive-foreground hover:bg-destructive/90',
 				outline:
-					'border border-black bg-background hover:bg-accent hover:text-accent-foreground',
+					'border border-black bg-transparent hover:bg-accent hover:text-accent-foreground',
+				outlineBgGradient:
+					'border border-black bg-gradient-to-br from-pink-200 via-sky-200 to-emerald-200 hover:bg-accent hover:text-accent-foreground',
 				secondary:
 					'bg-secondary text-secondary-foreground hover:bg-secondary/70',
 				ghost: 'hover:bg-accent hover:text-accent-foreground',
@@ -26,6 +28,7 @@ const buttonVariants = cva(
 				sm: 'h-9 rounded-full px-3',
 				lg: 'h-11 rounded-full px-8',
 				xl: 'h-14 rounded-full px-12 text-lg',
+				jumbo: 'h-24 rounded-full px-14 text-4xl py-9 font-normal',
 				icon: 'h-10 w-10',
 			},
 		},
@@ -48,10 +51,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 		return (
 			<motion.div
 				animate={{ opacity: 1, scale: 1 }}
-				whileHover={{ y: -0.5, scale: 1.1 }}
+				whileHover={{ y: -0.5, scale: 1.05 }}
 				transition={{
 					type: 'spring',
-					damping: 5,
+					damping: 7,
 					stiffness: 50,
 					restDelta: 0.001,
 				}}

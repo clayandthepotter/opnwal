@@ -3,7 +3,7 @@
 import { motion, useScroll } from 'framer-motion';
 import NavMain from '@/components/navMain';
 import Image from 'next/image';
-import { Button } from './ui/button';
+import JoinOpnwalButton from '@/components/ui/landingPage/joinOpnwalButton';
 import HeroHeading from '@/components/ui/landingPage/heroHeading';
 import HeroDescription from './ui/landingPage/heroDescription';
 import HeroButton from './ui/landingPage/heroButton';
@@ -30,7 +30,6 @@ const LandingPage = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
 			>
 				<header className='items-end'>
 					<NavMain isLoggedIn={isLoggedIn.toString()} />
-					<hr className='border-b border-black max-w-[1560px]' />
 				</header>
 			</motion.div>
 			{/* MAIN CONTENT */}
@@ -352,25 +351,46 @@ const LandingPage = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
 				<section
 					id='s5'
 					className='
+						pt-36
 						relative
-						inline-grid 
+						grid 
+						justify-items-center
 					'
 				>
 					<div
 						id='s5Header'
 						className='
-							w-[1150px] 
+							drop-shadow-2xl
+							flex
+							w-auto
 							h-[240px] 
-							p-20
+							px-20
+							bg-primaryBlue
+							border-2
+							border-black
+							rounded-full
+							mb-14
 						'
 					>
-						<h2 className='text-8xl'>Step Into Something New</h2>
+						<h2
+							className='
+								justify-self-center 
+								self-center 
+								w-full 
+								text-8xl 
+								text-center
+								-mt-3	
+							'
+						>
+							Step Into Something New
+						</h2>
 					</div>
 					<div
 						id='imageContainer'
 						className='
 							h-[1028px] 
 							w-[1028px] 
+							flex
 							rounded-t-full
 							bg-primaryBlue
 							border-2
@@ -381,39 +401,52 @@ const LandingPage = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
 						<div
 							id='imageDiv'
 							className='
+								flex
+								self-center
+								m-auto
 								h-[857px] 
 								w-[857px] 
 								rounded-t-full
 								border-2
 								border-black
 								overflow-hidden
+								object-fill
 							'
 						>
 							<Image
-								style={{ alignSelf: 'end' }}
+								className='h-full w-full object-cover'
 								src='/s5Image/pexels-anna-shvets-4483218.jpg'
-								width='1286'
-								height='857'
+								width='1920'
+								height='1280'
 								alt='Woman walking past art collection'
 							/>
 						</div>
 					</div>
-					<Button>Join Opnwal</Button>
-					<div>{/* Squiggle */}</div>
-					se
+					<JoinOpnwalButton />
+					<div className='mt-26'>
+						<Squiggle1 />
+					</div>
 				</section>
 			</main>
-			<footer id='footer' className='pb-50'>
-				<div id='socialIcons'>
+
+			{/* FOOTER */}
+
+			<footer id='footer' className='py-28 flex-col'>
+				<div
+					id='socialIcons'
+					className='mb-9 grid grid-cols-1 grid-rows-1 justify-items-center'
+				>
 					<Image
-						style={{ alignSelf: 'end' }}
+						className='justify-self-center'
 						src='/socialIcons/instagramIcon.svg'
 						width='50'
 						height='50'
 						alt='Instagram Icon'
 					/>
 				</div>
-				<p>© 2024 Opnwal, All Rights Reserved</p>
+				<p className='text-center'>
+					© 2024 Opnwal, All Rights Reserved
+				</p>
 			</footer>
 		</div>
 	);
