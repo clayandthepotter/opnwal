@@ -14,6 +14,7 @@ import S2MainContent from './ui/landingPage/s2MainContent';
 import InfoCircle from './ui/landingPage/infoCircle';
 import Squiggle1 from './ui/landingPage/squiggle1';
 import Asterisk3 from './ui/landingPage/asterisk3';
+import { FaqsAccordions } from './ui/landingPage/faqsAccordion';
 
 const LandingPage = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
 	return (
@@ -258,28 +259,161 @@ const LandingPage = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
 				{/* FAQs SECTION */}
 
 				<section
-					id='faqs'
+					id='faqsSection'
 					className='
-						h-[1100px]
+						max-h-min
 						flex
 						m-auto
-						'
+					'
 				>
 					<div
 						id='faqsContentDiv'
 						className='
-							h-[900px]
+							grid
+							grid-cols-1
+							grid-rows-1
+							min-h-max
+							mx-auto
 						'
 					>
-						<div id='s4header'>
-							<h2>FAQs</h2>
+						<div
+							id='s4header'
+							className='
+								self-start
+								col-start-1
+								col-end-1
+								row-start-1
+								flex
+								w-[808px]
+								h-[197px]
+								z-20
+								mt-28
+								mx-auto
+								bg-primaryBlue
+								border-2
+								border-black
+								rounded-full
+							'
+						>
+							<h2
+								className='
+									text-center 
+									text-8xl 
+									font-semibold 
+									m-auto 
+									justify-self-center 
+									self-center'
+							>
+								FAQs
+							</h2>
 						</div>
-						<div id='faqsDiv'></div>
+						<div
+							id='faqsDivContainer'
+							className='
+								drop-shadow-2xl
+								grid
+								mt-52
+								grid-cols-1
+								grid-rows-1
+								col-start-1
+								col-end-1
+								row-start-1
+								self-start
+								justify-self-center
+								w-[1036px]
+								h-auto
+								z-15
+								bg-primaryBlue
+								border-2
+								border-black
+								rounded-[56px]
+								overflow-hidden
+								bg-gradient-to-br
+								from-emerald-200
+								via-purple-200
+								to-sky-300
+							'
+						>
+							<div className='z-20 col-start-1 row-start-1 p-20'>
+								<hr
+									id='divider'
+									className='my-16 w-[892px] border border-black'
+								/>
+								<div>
+									<FaqsAccordions />
+								</div>
+							</div>
+						</div>
 					</div>
 				</section>
+
+				{/* SECTION 5 */}
+
+				<section
+					id='s5'
+					className='
+						relative
+						inline-grid 
+					'
+				>
+					<div
+						id='s5Header'
+						className='
+							w-[1150px] 
+							h-[240px] 
+							p-20
+						'
+					>
+						<h2 className='text-8xl'>Step Into Something New</h2>
+					</div>
+					<div
+						id='imageContainer'
+						className='
+							h-[1028px] 
+							w-[1028px] 
+							rounded-t-full
+							bg-primaryBlue
+							border-2
+							border-black
+							drop-shadow-2xl
+							'
+					>
+						<div
+							id='imageDiv'
+							className='
+								h-[857px] 
+								w-[857px] 
+								rounded-t-full
+								border-2
+								border-black
+								overflow-hidden
+							'
+						>
+							<Image
+								style={{ alignSelf: 'end' }}
+								src='/s5Image/pexels-anna-shvets-4483218.jpg'
+								width='1286'
+								height='857'
+								alt='Woman walking past art collection'
+							/>
+						</div>
+					</div>
+					<Button>Join Opnwal</Button>
+					<div>{/* Squiggle */}</div>
+					se
+				</section>
 			</main>
-			<footer>
-				<h1>Footer</h1>
+			<footer id='footer' className='pb-50'>
+				<div id='socialIcons'>
+					<Image
+						style={{ alignSelf: 'end' }}
+						src='/socialIcons/instagramIcon.svg'
+						width='50'
+						height='50'
+						alt='Instagram Icon'
+					/>
+				</div>
+				<p>© 2024 Opnwal, All Rights Reserved</p>
 			</footer>
 		</div>
 	);
