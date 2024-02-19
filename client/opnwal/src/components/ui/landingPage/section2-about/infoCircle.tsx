@@ -11,6 +11,7 @@ const InfoCircle = () => {
 				y: 0,
 			}}
 			transition={{
+				delay: 0.3,
 				duration: 1.25,
 				ease: 'easeOut',
 			}}
@@ -33,6 +34,7 @@ const InfoCircle = () => {
 							rounded-full
 							border-black
 							bg-white
+							hover:italic
 							'
 		>
 			<p className='m-auto flex self-center text-center text-3xl font-bold'>

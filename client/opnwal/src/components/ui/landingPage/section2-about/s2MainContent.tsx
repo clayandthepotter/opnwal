@@ -1,19 +1,20 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 
 const S2MainContent = () => {
 	return (
 		<motion.div
-			initial={{ opacity: 0, scale: 0.9, y: 50 }}
+			initial={{ opacity: 0, x: -100 }}
 			whileInView={{
 				opacity: 1,
-				scale: 1,
 				x: 0,
 				y: 0,
 			}}
 			transition={{
-				duration: 1.25,
+				delay: 0.2,
+				duration: 1.5,
 				ease: 'easeOut',
 			}}
 			viewport={{ once: true }}
@@ -33,19 +34,25 @@ const S2MainContent = () => {
 		>
 			{/* SECTION CONTENT DIV */}
 
-			<div>
-				{/* SECTION HEADING */}
-
-				<h2
-					id='section2-heading'
+			<motion.div
+				initial={{ opacity: 0 }}
+				whileInView={{
+					opacity: 1,
+				}}
+				transition={{
+					delay: 0.2,
+					duration: 1,
+					ease: 'easeOut',
+				}}
+				viewport={{ once: true }}
+			>
+				<TextGenerateEffect
 					className='
-									text-8xl
-									max-w-[800px]
-									font-semibold
-									'
-				>
-					What is Opnwal?
-				</h2>
+										text-8xl
+										max-w-[800px]
+										font-normal'
+					words={'What is Opnwal?'}
+				/>
 
 				{/* SECTION DESCRIPTION DIV */}
 
@@ -56,6 +63,7 @@ const S2MainContent = () => {
 									text-lg
 									mt-6
 									ml-4
+									text-slate-800
 								'
 				>
 					<strong>
@@ -85,7 +93,7 @@ const S2MainContent = () => {
 						<p>Opnwal is where art meets opportunity.</p>
 					</strong>
 				</div>
-			</div>
+			</motion.div>
 		</motion.div>
 	);
 };

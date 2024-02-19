@@ -4,8 +4,13 @@ import Image from 'next/image';
 const Asterisk2 = () => {
 	return (
 		<motion.div
-			initial={{ opacity: 0, scale: 0.8 }}
-			animate={{ opacity: 1, scale: 1 }}
+			initial={{ opacity: 0, scale: 0.8, y: 30 }}
+			whileInView={{
+				opacity: 1,
+				scale: 1,
+				y: 0,
+			}}
+			animate={{ opacity: 1, scale: 1, y: 0 }}
 			whileHover={{ scale: 1.2, rotate: 90 }}
 			transition={{
 				type: 'spring',
@@ -13,6 +18,7 @@ const Asterisk2 = () => {
 				stiffness: 50,
 				restDelta: 0.001,
 			}}
+			viewport={{ once: true }}
 			className='
         self-start
         justify-self-start

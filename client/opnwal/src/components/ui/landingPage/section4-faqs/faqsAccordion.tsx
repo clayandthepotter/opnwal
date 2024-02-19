@@ -5,6 +5,7 @@ import {
 	AccordionTrigger,
 } from '@/components/ui/accordionEdit';
 import React, { Key } from 'react';
+import { motion } from 'framer-motion';
 
 type FAQ = {
 	q: string;
@@ -42,7 +43,20 @@ export const FaqsAccordions = () => {
 	return (
 		<>
 			{Object.values(faqs).map((faq: FAQ, index: Key) => (
-				<div
+				<motion.div
+					initial={{ opacity: 0, scale: 0.9, y: 30 }}
+					whileInView={{
+						opacity: 1,
+						scale: 1,
+						x: 0,
+						y: 0,
+					}}
+					transition={{
+						duration: 0.75,
+						ease: 'easeOut',
+					}}
+					whileHover={{ scale: 1.01 }}
+					viewport={{ once: true }}
 					className='
 						w-full
 						h-auto
@@ -52,6 +66,7 @@ export const FaqsAccordions = () => {
 						border-black
 						rounded-full
 						p-5
+						hover:bg-white/50
 					'
 				>
 					<Accordion style={{}} key={index} type='single' collapsible>
@@ -60,7 +75,7 @@ export const FaqsAccordions = () => {
 							<AccordionContent>{faq.a}</AccordionContent>
 						</AccordionItem>
 					</Accordion>
-				</div>
+				</motion.div>
 			))}
 		</>
 	);

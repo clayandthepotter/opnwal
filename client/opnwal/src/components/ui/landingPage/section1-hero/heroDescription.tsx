@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 const HeroDescription = () => {
 	return (
 		<motion.div
-			initial={{ opacity: 0, scale: 0.9, y: 10 }}
+			initial={{ opacity: 0, scale: 0.9, y: 30 }}
 			animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
 			transition={{
 				delay: 0.2,
-				duration: .75,
+				duration: 1,
 				ease: 'easeOut',
 			}}
 			id='hero-section-description'
@@ -77,6 +77,7 @@ const HeroDescription = () => {
         col-end-5
         justify-self-center
         self-start
+        text-slate-800
         '
 		>
 			<p>

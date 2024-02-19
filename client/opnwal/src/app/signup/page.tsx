@@ -1,3 +1,5 @@
-export const SignUpPage = () => {
-	return <div>Sign Up</div>;
-};
+'use client';
+
+export default function SignUpPage() {
+	return <div>SignUpPage</div>;
+}

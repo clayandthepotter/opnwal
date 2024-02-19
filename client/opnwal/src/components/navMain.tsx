@@ -1,11 +1,10 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { link } from 'fs';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const NavMain = ({ isLoggedIn }: { isLoggedIn: string }) => {
+const NavMain = () => {
 	return (
 		<div
 			className='
@@ -47,25 +46,24 @@ const NavMain = ({ isLoggedIn }: { isLoggedIn: string }) => {
 
 			{/* DESKTOP NAV */}
 			<nav className='relative hidden md:flex h-12 items-center '>
-				<Button
-					variant='link'
-					className='hover:text-primary/70 text-base'
-				>
-					FAQs
-				</Button>
-				<Button
-					variant='outline'
-					className='hidden md:flex ml-2 '
-					onClick={() => (isLoggedIn = 'true')}
-				>
-					Log in
-				</Button>
-				<Button
-					className='hidden md:flex text-primaryBlue ml-3 '
-					onClick={() => (isLoggedIn = 'true')}
-				>
-					Sign Up
-				</Button>
+				<Link href='#faqsSection'>
+					<Button
+						variant='link'
+						className='hover:text-primary/70 text-base'
+					>
+						FAQs
+					</Button>
+				</Link>
+				<Link href='/login'>
+					<Button variant='outline' className='hidden md:flex ml-2 '>
+						Log in
+					</Button>
+				</Link>
+				<Link href='/signup'>
+					<Button className='hidden md:flex text-primaryBlue ml-3 '>
+						Sign Up
+					</Button>
+				</Link>
 			</nav>
 
 			{/* MOBILE NAV */}
@@ -74,7 +72,7 @@ const NavMain = ({ isLoggedIn }: { isLoggedIn: string }) => {
 				<Button
 					variant='outline'
 					className='md:hidden flex rounded-full ml-4'
-					onClick={() => (isLoggedIn = 'true')}
+					// onClick={() => (isLoggedIn = 'true')}
 				>
 					Log in
 				</Button>
