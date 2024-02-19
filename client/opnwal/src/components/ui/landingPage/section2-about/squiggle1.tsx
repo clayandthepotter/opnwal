@@ -4,14 +4,14 @@ import Image from 'next/image';
 const Squiggle1 = () => {
 	return (
 		<motion.div
-			initial={{ opacity: 0, scale: 0.9, x: 30 }}
+			initial={{ opacity: 0, scale: 0.9, y: 30 }}
 			whileInView={{
 				opacity: 1,
 				scale: 1,
-				x: 0,
+				y: 0,
 			}}
 			animate={{ opacity: 1, scale: 1 }}
-			whileHover={{ x: 10 }}
+			whileHover={{ x: -10 }}
 			transition={{
 				type: 'spring',
 				damping: 3,
@@ -21,12 +21,13 @@ const Squiggle1 = () => {
 			viewport={{ once: true }}
 			className='
 							self-start
-							justify-self-start
+							justify-self-center
 							mt-16
 							col-start-6
 							col-end-8
 							row-start-1
 							row-end-1
+							w-[200px]
 					'
 		>
 			<Image

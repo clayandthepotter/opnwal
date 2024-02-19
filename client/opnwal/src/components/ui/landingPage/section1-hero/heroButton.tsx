@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion';
-import { Button } from '../button';
+import { Button } from '../../button';
 
 const HeroButton = () => {
 	return (
 		<motion.div
-			initial={{ opacity: 0, scale: 0.9, y: 10 }}
+			initial={{ opacity: 0, scale: 0.9, y: 30 }}
 			animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
 			transition={{
 				delay: 0.2,
-				duration: 0.75,
+				duration: 1,
 				ease: 'easeOut',
 			}}
 			whileTap={{ scale: 0.7 }}

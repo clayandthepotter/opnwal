@@ -8,7 +8,7 @@ const HeroImage = () => {
 			animate={{ opacity: 1, x: 0 }}
 			transition={{
 				delay: 0.25,
-				duration: 0.75,
+				duration: 1,
 				ease: 'easeOut',
 			}}
 			id='hero-image'

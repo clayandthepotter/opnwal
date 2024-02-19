@@ -12,6 +12,9 @@ const Asterisk1 = () => {
 				damping: 5,
 				stiffness: 50,
 				restDelta: 0.001,
+				delay: 0.2,
+				duration: 1,
+				ease: 'easeOut',
 			}}
 			className='
 				z-20
