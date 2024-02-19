@@ -44,6 +44,7 @@ export const FaqsAccordions = () => {
 		<>
 			{Object.values(faqs).map((faq: FAQ, index: Key) => (
 				<motion.div
+					key={index}
 					initial={{ opacity: 0, scale: 0.9, y: 30 }}
 					whileInView={{
 						opacity: 1,
@@ -69,7 +70,7 @@ export const FaqsAccordions = () => {
 						hover:bg-white/50
 					'
 				>
-					<Accordion style={{}} key={index} type='single' collapsible>
+					<Accordion type='single' collapsible>
 						<AccordionItem value={`item-${index}`}>
 							<AccordionTrigger>{faq.q}</AccordionTrigger>
 							<AccordionContent>{faq.a}</AccordionContent>
