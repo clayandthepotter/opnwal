@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import NavMain from '@/components/navMain';
+import NavMain from '@/components/ui/landingPage/navMain';
 import Image from 'next/image';
 import JoinOpnwalButton from '@/components/ui/landingPage/section5-cta/joinOpnwalButton';
 import HeroHeading from '@/components/ui/landingPage/section1-hero/heroHeading';
@@ -17,7 +17,7 @@ import Asterisk3 from '@/components/ui/landingPage/section2-about/asterisk3';
 import { FaqsAccordions } from '@/components/ui/landingPage/section4-faqs/faqsAccordion';
 import Squiggle2 from '../components/ui/landingPage/section3-info/squiggle2';
 import S3ContentDiv from '@/components/ui/landingPage/section3-info/s3ContentDiv';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/global/button';
 import { TypewriterText } from '@/components/ui/landingPage/section5-cta/typewriterText';
 
 const LandingPage = () => {

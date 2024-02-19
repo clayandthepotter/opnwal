@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { TextGenerateEffect } from '../../text-generate-effect';
+import { TextGenerateEffect } from '../../../global/text-generate-effect';
 
 const HeroHeading = () => {
 	return (

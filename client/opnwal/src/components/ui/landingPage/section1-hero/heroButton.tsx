@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Button } from '../../button';
+import { Button } from '../../../global/button';
 
 const HeroButton = () => {
 	return (

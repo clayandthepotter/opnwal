@@ -3,7 +3,7 @@ import {
 	AccordionContent,
 	AccordionItem,
 	AccordionTrigger,
-} from '@/components/ui/accordionEdit';
+} from '@/components/ui/landingPage/accordionEdit';
 import React, { Key } from 'react';
 import { motion } from 'framer-motion';
 
