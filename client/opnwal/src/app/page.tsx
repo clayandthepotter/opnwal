@@ -19,8 +19,11 @@ import Squiggle2 from '../components/ui/landingPage/section3-info/squiggle2';
 import S3ContentDiv from '@/components/ui/landingPage/section3-info/s3ContentDiv';
 import { Button } from '@/components/global/button';
 import { TypewriterText } from '@/components/ui/landingPage/section5-cta/typewriterText';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 const LandingPage = () => {
+	const { user, error, isLoading } = useUser();
+
 	return (
 		<div
 			id='landing-page-body'

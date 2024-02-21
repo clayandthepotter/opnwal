@@ -3,8 +3,11 @@
 import { Button } from '@/components/global/button';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 const NavMain = () => {
+	const { user, error, isLoading } = useUser();
+
 	return (
 		<div
 			className='
@@ -54,7 +57,7 @@ const NavMain = () => {
 						FAQs
 					</Button>
 				</Link>
-				<Link href='/login'>
+				<Link href='/api/auth/login'>
 					<Button variant='outline' className='hidden md:flex ml-2 '>
 						Log in
 					</Button>

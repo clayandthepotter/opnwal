@@ -2,6 +2,7 @@ import '../styles/globals.css';
 
 import type { Metadata } from 'next';
 import { DM_Sans } from 'next/font/google';
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 const dmSans = DM_Sans({
 	subsets: ['latin'],
@@ -23,7 +24,9 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en'>
-			<body className={dmSans.className}>{children}</body>
+			<UserProvider>
+				<body className={dmSans.className}>{children}</body>
+			</UserProvider>
 		</html>
 	);
 }
