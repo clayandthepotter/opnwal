@@ -25,8 +25,6 @@ import LandingPageFooter from '@/components/ui/landingPage/footer/landingPageFoo
 import { SessionProvider } from 'next-auth/react';
 
 const LandingPage = () => {
-	const { user, error, isLoading } = useUser();
-
 	return (
 		<SessionProvider>
 			<div

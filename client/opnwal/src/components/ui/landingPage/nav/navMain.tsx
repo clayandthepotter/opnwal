@@ -3,12 +3,19 @@
 import { Button } from '@/components/global/button';
 import Image from 'next/image';
 import Link from 'next/link';
+<<<<<<< HEAD:client/opnwal/src/components/ui/landingPage/nav/navMain.tsx
 import { signOut, useSession } from 'next-auth/react';
 
 const NavMain = () => {
 	const { data: session } = useSession();
 	const isLoggedIn = session?.user ? true : false;
 	console.log(session);
+=======
+import { useUser } from '@auth0/nextjs-auth0/client';
+
+const NavMain = () => {
+	const { user, error, isLoading } = useUser();
+>>>>>>> fef2eb58f42a6709d4bdcb42681ffa6dbd0eff99:client/opnwal/src/components/ui/landingPage/navMain.tsx
 
 	return (
 		<div
@@ -59,6 +66,7 @@ const NavMain = () => {
 						FAQs
 					</Button>
 				</Link>
+<<<<<<< HEAD:client/opnwal/src/components/ui/landingPage/nav/navMain.tsx
 				{session?.user ? (
 					<Button
 						variant='outline'
@@ -66,6 +74,11 @@ const NavMain = () => {
 						onClick={() => signOut()}
 					>
 						Log Out
+=======
+				<Link href='/api/auth/login'>
+					<Button variant='outline' className='hidden md:flex ml-2 '>
+						Log in
+>>>>>>> fef2eb58f42a6709d4bdcb42681ffa6dbd0eff99:client/opnwal/src/components/ui/landingPage/navMain.tsx
 					</Button>
 				) : (
 					<Link href={'/sign-in'}>
