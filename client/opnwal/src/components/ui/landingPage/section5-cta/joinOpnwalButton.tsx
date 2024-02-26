@@ -24,7 +24,7 @@ const JoinOpnwalButton = () => {
 				variant='outlineBgGradient'
 				color='amber'
 				size='jumbo'
-				className='drop-shadow-2xl border-2 z-30 -m-12 hover:border-4 hover:font-semibold'
+				className='drop-shadow-2xl border z-30 -m-12 hover:border-2'
 				asChild
 			>
 				<Link href='/signup'>Join Opnwal</Link>

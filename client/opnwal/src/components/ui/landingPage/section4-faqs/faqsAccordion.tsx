@@ -3,7 +3,7 @@ import {
 	AccordionContent,
 	AccordionItem,
 	AccordionTrigger,
-} from '@/components/ui/landingPage/accordionEdit';
+} from '@/components/ui/landingPage/section4-faqs/accordionEdit';
 import React, { Key } from 'react';
 import { motion } from 'framer-motion';
 
@@ -63,7 +63,7 @@ export const FaqsAccordions = () => {
 						h-auto
 						mb-10
 						bg-white
-						border-2
+						border
 						border-black
 						rounded-full
 						p-5

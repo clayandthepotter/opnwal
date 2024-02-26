@@ -11,6 +11,8 @@ const buttonVariants = cva(
 		variants: {
 			variant: {
 				default: 'bg-primary text-primaryBlue hover:bg-primary/70',
+				defaultWidthFull:
+					'bg-primary text-primaryBlue hover:bg-primary/70 w-full',
 				destructive:
 					'bg-destructive text-destructive-foreground hover:bg-destructive/90',
 				outline:
@@ -30,7 +32,7 @@ const buttonVariants = cva(
 				xl: 'h-14 rounded-full px-12 text-lg',
 				jumbo: 'h-24 rounded-full px-14 text-4xl py-9 font-normal',
 				iconSm: 'h-10 w-10',
-				iconJumbo: 'h-16 w-16',
+				iconJumbo: 'h-16 w-16 rounded-full',
 			},
 		},
 		defaultVariants: {

@@ -26,7 +26,7 @@ const S2MainContent = () => {
 							justify-self-start
 							rounded-r-full
 							bg-primaryBlue
-							border-2
+							border
 							border-black
 							px-12
 							py-6

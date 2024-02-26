@@ -30,7 +30,7 @@ const InfoCircle = () => {
 							mt-12
 							w-[81px]
 							h-[81px]
-							border-2
+							border
 							rounded-full
 							border-black
 							bg-white

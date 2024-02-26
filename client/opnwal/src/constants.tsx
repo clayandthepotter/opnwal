@@ -3,15 +3,26 @@ import { SideNavItem } from './types';
 
 export const SIDENAV_ITEMS: SideNavItem[] = [
 	{
-		title: 'Feed',
-		path: '/admin/feed',
-		icon: <Icon icon='lucide:newspaper' width='24' height='24' />,
-	},
-	{
 		title: 'Dashboard',
 		path: '/admin/dashboard',
 		icon: <Icon icon='lucide:home' width='24' height='24' />,
 	},
+	{
+		title: 'My Feed',
+		path: '/admin/feed',
+		icon: <Icon icon='lucide:newspaper' width='24' height='24' />,
+	},
+	{
+		title: 'Create',
+		path: '/admin/create',
+		icon: <Icon icon='lucide:plus-circle' width='24' height='24' />,
+		submenu: true,
+		subMenuItems: [
+			{ title: 'New Post', path: '/admin/create/new-post' },
+			{ title: 'New Product', path: '/admin/create/new-product' },
+		],
+	},
+
 	{
 		title: 'Products',
 		path: '/admin/products',

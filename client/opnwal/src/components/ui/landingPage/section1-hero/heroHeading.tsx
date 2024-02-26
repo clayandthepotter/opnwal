@@ -20,8 +20,8 @@ const HeroHeading = () => {
 			className='
 			drop-shadow-xl
 			z-10
-			border-2 border-black rounded-full
-			bg-primaryBlue 
+			border border-black rounded-full
+			bg-primaryBlue
 			relative
 			self-start
 			justify-self-start

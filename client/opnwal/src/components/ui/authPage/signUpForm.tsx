@@ -1,0 +1,225 @@
+'use client';
+
+import { useState } from 'react';
+import { Button } from '@/components/global/button';
+import { Input } from '@/components/global/input';
+import GoogleSignUpButton from '@/components/ui/signUp/googleSignUpButton';
+import Link from 'next/link';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import {
+	Form,
+	FormControl,
+	FormField,
+	FormItem,
+	FormLabel,
+	FormMessage,
+} from '@/components/global/form';
+
+const formSchema = z.object({
+	firstName: z.string().nonempty(),
+	lastName: z.string().nonempty(),
+	phoneNumber: z.string().nonempty(),
+	email: z.string().email(),
+	password: z.string().nonempty(),
+	confirmPassword: z.string().nonempty(),
+});
+export default function SignUpForm() {
+	const form = useForm<z.infer<typeof formSchema>>({
+		resolver: zodResolver(formSchema),
+		defaultValues: {
+			firstName: '',
+			lastName: '',
+			phoneNumber: '',
+			email: '',
+			password: '',
+			confirmPassword: '',
+		},
+	});
+
+	const onSubmit = (values: z.infer<typeof formSchema>) => {
+		// do something with the values
+		console.log(values);
+	};
+
+	const [isVisible, setIsVisible] = useState(false);
+
+	return (
+		<div
+			id='signupForm'
+			className='
+					relative
+					w-[100vw]
+					h-[100vh]
+					flex
+					flex-col
+					justify-center
+					items-center
+					overflow-auto
+				'
+		>
+			<Form {...form}>
+				<form
+					onSubmit={form.handleSubmit(onSubmit)}
+					id='signupForm'
+					className='
+              relative
+              p-5
+              flex
+              flex-col
+              justify-center
+              items-center
+              bg-primaryBlue/10
+              rounded-[30px]
+              border
+              border-black
+              overflow-auto
+              pb-10
+            '
+				>
+					<h1 className='text-5xl text-black mt-3 mb-5 mx-1'>
+						Sign Up
+					</h1>
+					<p className='text-sm'>With Email</p>
+					<div
+						className='
+                  px-5 mt-2 flex-col 
+                  min-w-[350px]'
+					>
+						<hr className='border border-black w-full mb-5' />
+						<div className='flex'>
+							<div className='flex-col pr-2'>
+								<FormField
+									control={form.control}
+									name='firstName'
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>First Name</FormLabel>
+											<FormControl>
+												<Input placeholder='John' {...field} />
+											</FormControl>
+											<FormMessage />
+										</FormItem>
+									)}
+								/>
+							</div>
+							<div className='flex-col pl-2'>
+								<FormField
+									control={form.control}
+									name='lastName'
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>Last Name</FormLabel>
+											<FormControl>
+												<Input placeholder='Smith' {...field} />
+											</FormControl>
+											<FormMessage />
+										</FormItem>
+									)}
+								/>
+							</div>
+						</div>
+						<div className='flex-col'>
+							<FormField
+								control={form.control}
+								name='phoneNumber'
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>Phone Number</FormLabel>
+										<FormControl>
+											<Input placeholder='555-234-6789' {...field} />
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+						</div>
+						<div className='flex-col'>
+							<FormField
+								control={form.control}
+								name='email'
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>Email</FormLabel>
+										<FormControl>
+											<Input
+												placeholder='email@example.com'
+												{...field}
+											/>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+						</div>
+						<div className='flex-col'>
+							<FormField
+								control={form.control}
+								name='password'
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>Password</FormLabel>
+										<FormControl>
+											<Input
+												placeholder='Choose your password'
+												{...field}
+											/>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+						</div>
+						<div className='flex-col'>
+							<FormField
+								control={form.control}
+								name='confirmPassword'
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>Confirm Password</FormLabel>
+										<FormControl>
+											<Input
+												placeholder='Confirm your password'
+												{...field}
+											/>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+						</div>
+						<div>
+							<Button
+								variant='defaultWidthFull'
+								type='submit'
+								className='mt-5'
+								onClick={form.handleSubmit(onSubmit)}
+							>
+								Register
+							</Button>
+						</div>
+						<div className='flex items-center mt-5'>
+							<hr className='border border-black w-full' />
+							<p className='text-sm m-2'>Or</p>
+							<hr className='border border-black w-full' />
+						</div>
+						<p className='text-sm mb-7 text-center'>
+							With Social Media
+						</p>
+						<GoogleSignUpButton />
+						<p className='text-sm mt-5 text-center'>
+							Dont have an account?{' '}
+							<Link
+								href={'/sign-up'}
+								className='decoration-underline text-primaryBlue hover:underline'
+							>
+								Sign Up
+							</Link>
+						</p>
+					</div>
+				</form>
+			</Form>
+		</div>
+	);
+}

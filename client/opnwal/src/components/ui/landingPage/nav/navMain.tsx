@@ -3,8 +3,13 @@
 import { Button } from '@/components/global/button';
 import Image from 'next/image';
 import Link from 'next/link';
+import { signOut, useSession } from 'next-auth/react';
 
 const NavMain = () => {
+	const { data: session } = useSession();
+	const isLoggedIn = session?.user ? true : false;
+	console.log(session);
+
 	return (
 		<div
 			className='
@@ -54,16 +59,34 @@ const NavMain = () => {
 						FAQs
 					</Button>
 				</Link>
-				<Link href='/login'>
-					<Button variant='outline' className='hidden md:flex ml-2 '>
-						Log in
+				{session?.user ? (
+					<Button
+						variant='outline'
+						className='hidden md:flex ml-2'
+						onClick={() => signOut()}
+					>
+						Log Out
 					</Button>
-				</Link>
-				<Link href='/signup'>
-					<Button className='hidden md:flex text-primaryBlue ml-3 '>
-						Sign Up
-					</Button>
-				</Link>
+				) : (
+					<Link href={'/sign-in'}>
+						<Button variant='outline' className='hidden md:flex ml-2'>
+							Sign In
+						</Button>
+					</Link>
+				)}
+				{session?.user ? (
+					<Link href={'/admin/dashboard'}>
+						<Button variant='default' className='hidden md:flex ml-2'>
+							Dashboard
+						</Button>
+					</Link>
+				) : (
+					<Link href='/sign-up'>
+						<Button className='hidden md:flex text-primaryBlue ml-3 '>
+							Sign Up
+						</Button>
+					</Link>
+				)}
 			</nav>
 
 			{/* MOBILE NAV */}

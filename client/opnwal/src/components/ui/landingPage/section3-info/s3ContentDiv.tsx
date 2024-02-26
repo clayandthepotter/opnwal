@@ -19,7 +19,7 @@ const S3ContentDiv = () => {
 									z-14
 									h-[852px]
 									w-[1246px]
-									border-2
+									border
 									border-black
 									rounded-l-full
 									bg-primaryBlue
@@ -47,7 +47,7 @@ const S3ContentDiv = () => {
 										mt-40
 										p-0
 										relative
-										border-2
+										border
 										border-black
 										rounded-l-full
 										h-[630px]

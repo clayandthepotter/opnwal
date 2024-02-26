@@ -13,6 +13,10 @@ const HeroImage = () => {
 			}}
 			id='hero-image'
 			className='
+								overflow-hidden
+								rounded-b-full
+								border
+								border-black
 								drop-shadow-2xl
 								z-0
 								self-start
@@ -43,9 +47,9 @@ const HeroImage = () => {
 								'
 		>
 			<Image
-				src='/hero/hero-photo.png'
-				width='498'
-				height='747'
+				src='/hero/pexels-shelagh-murphy-2258795.jpg'
+				width='600'
+				height='900'
 				alt='Hero Photo'
 			/>
 		</motion.div>

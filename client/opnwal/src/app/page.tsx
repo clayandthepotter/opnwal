@@ -1,8 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import NavMain from '@/components/ui/landingPage/navMain';
-import Image from 'next/image';
+import NavMain from '@/components/ui/landingPage/nav/navMain';
 import JoinOpnwalButton from '@/components/ui/landingPage/section5-cta/joinOpnwalButton';
 import HeroHeading from '@/components/ui/landingPage/section1-hero/heroHeading';
 import HeroDescription from '@/components/ui/landingPage/section1-hero/heroDescription';
@@ -14,277 +13,110 @@ import S2MainContent from '@/components/ui/landingPage/section2-about/s2MainCont
 import InfoCircle from '@/components/ui/landingPage/section2-about/infoCircle';
 import Squiggle1 from '@/components/ui/landingPage/section2-about/squiggle1';
 import Asterisk3 from '@/components/ui/landingPage/section2-about/asterisk3';
-import { FaqsAccordions } from '@/components/ui/landingPage/section4-faqs/faqsAccordion';
 import Squiggle2 from '../components/ui/landingPage/section3-info/squiggle2';
 import S3ContentDiv from '@/components/ui/landingPage/section3-info/s3ContentDiv';
-import { Button } from '@/components/global/button';
 import { TypewriterText } from '@/components/ui/landingPage/section5-cta/typewriterText';
+import S4HeadingDiv from '@/components/ui/landingPage/section4-faqs/s4HeadingDiv';
+import { FaqsDivContainer } from '@/components/ui/landingPage/section4-faqs/faqsDivContainer';
+import S5HeadingWrapper from '@/components/ui/landingPage/section5-cta/s5HeadingWrapper';
+import S5ImageWrapper from '@/components/ui/landingPage/section5-cta/s5ImageWrapper';
+import S5Image from './../components/ui/landingPage/section5-cta/s5Image';
+import LandingPageFooter from '@/components/ui/landingPage/footer/landingPageFooter';
+import { SessionProvider } from 'next-auth/react';
 
 const LandingPage = () => {
 	return (
-		<div
-			id='landing-page-body'
-			className='bg-gradient-to-br from-sky-100 via-pink-100 to-amber-100'
-		>
-			<div className='p-5 max-w-[1400px] m-auto self-center'>
-				{/* HEADER */}
-				<motion.div
-					initial={{ opacity: 0, y: -70 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{
-						duration: 0.75,
-						ease: 'easeOut',
-					}}
-				>
-					<header className='items-end'>
-						<NavMain />
-					</header>
-				</motion.div>
-				{/* MAIN CONTENT */}
-
-				<main
-					className='
-					max-w-[1280px]
-					m-auto
-					grid-col-1
-					grid-row-1'
-				>
-					{/* HERO SECTION */}
-
-					<section
-						id='hero-section'
-						className='
-								m-auto
-								mobileLG:h-[300px]
-								xxs:h-[360px]
-								xs:h-[425px]
-								sm:h-[500px]
-								md:h-[500px]
-								lg:h-[600px]
-								xl:h-[750px]
-				
-								grid
-								grid-cols-8
-								grid-rows-5
-								place-items-center'
+		<SessionProvider>
+			<div
+				id='landing-page-body'
+				className='bg-gradient-to-br from-sky-100 via-pink-100 to-amber-100'
+			>
+				<div className='p-5 max-w-[1400px] m-auto self-center'>
+					{/* HEADER */}
+					<motion.div
+						initial={{ opacity: 0, y: -70 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{
+							duration: 0.75,
+							ease: 'easeOut',
+						}}
 					>
-						<HeroHeading />
-						<HeroDescription />
-						<HeroButton />
-						<Asterisk1 />
-						<HeroImage />
-					</section>
-
-					{/* SECTION 2 */}
-
-					<section
-						id='what-is-opnwal'
+						<header className='items-end'>
+							<NavMain />
+						</header>
+					</motion.div>
+					{/* MAIN CONTENT */}
+					<main
 						className='
-								grid
-								grid-cols-8
-								grid-rows-5
-								place-items-center
-								max-h-[560px]'
+							max-w-[1280px]
+							m-auto
+							grid-col-1
+							grid-row-1'
 					>
-						<S2MainContent />
-						<InfoCircle />
-						<Squiggle1 />
-						<Asterisk2 />
-						<Asterisk3 />
-					</section>
-
-					{/* SECTION 3 */}
-
-					<section
-						id='s3'
-						className='
-								grid
-								grid-cols-8
-								grid-rows-5
-								max-h-[860px]
-							'
-					>
-						<Squiggle2 />
-						<S3ContentDiv />
-					</section>
-
-					{/* FAQs SECTION */}
-
-					<section
-						id='faqsSection'
-						className='
-								max-h-min
-								flex
-								m-auto
-							'
-					>
-						<motion.div
-							initial={{ opacity: 0, scale: 0.9, y: 30 }}
-							whileInView={{
-								opacity: 1,
-								scale: 1,
-								x: 0,
-								y: 0,
-							}}
-							transition={{
-								duration: 1.75,
-								ease: 'easeOut',
-							}}
-							viewport={{ once: true }}
-							id='faqsContentDiv'
+						{/* HERO SECTION */}
+						<section
+							id='hero-section'
 							className='
-									drop-shadow-2xl
-									grid
-									grid-cols-1
-									grid-rows-1
-									min-h-max
-									mx-auto
-								'
-						>
-							<motion.div
-								initial={{ scale: 0.9, y: 30 }}
-								whileInView={{
-									scale: 1,
-									x: 0,
-								}}
-								transition={{
-									duration: 1.75,
-									ease: 'easeOut',
-								}}
-								viewport={{ once: true }}
-								id='s4header'
-								className='
-										drop-shadow-2xl
-										self-start
-										col-start-1
-										col-end-1
-										row-start-1
-										flex
-										w-[808px]
-										h-[197px]
-										z-20
-										mt-28
-										mx-auto
-										bg-primaryBlue
-										border-2
-										border-black
-										rounded-full
-									'
-							>
-								<h2
-									className='
-											text-center
-											text-8xl
-											font-normal
-											m-auto
-											justify-self-center
-											self-center'
-								>
-									FAQs
-								</h2>
-							</motion.div>
-							<div
-								id='faqsDivContainer'
-								className='
-										drop-shadow-2xl
+										m-auto
+										mobileLG:h-[300px]
+										xxs:h-[360px]
+										xs:h-[425px]
+										sm:h-[500px]
+										md:h-[500px]
+										lg:h-[600px]
+										xl:h-[750px]
+			
 										grid
-										mt-52
-										grid-cols-1
-										grid-rows-1
-										col-start-1
-										col-end-1
-										row-start-1
-										self-start
-										justify-self-center
-										w-[1036px]
-										h-auto
-										z-15
-										bg-primaryBlue
-										border-2
-										border-black
-										rounded-[56px]
-										overflow-hidden
-										bg-gradient-to-br
-										from-emerald-200
-										via-purple-200
-										to-sky-300
-									'
-							>
-								<div className='z-20 col-start-1 row-start-1 p-20'>
-									<hr
-										id='divider'
-										className='my-16 w-[892px] border border-black'
-									/>
-									<div>
-										<FaqsAccordions />
-									</div>
-								</div>
-							</div>
-						</motion.div>
-					</section>
-
-					{/* SECTION 5 */}
-
-					<section
-						id='s5'
-						className='
-								pt-36
-								relative
-								grid
-								justify-items-center
-							'
-					>
-						<div
-							id='s5Header'
-							className='
-									flex
-									w-auto
-									max-w-[1100px]
-									border-b-2
-									border-black
-									mb-14
-									py-3
-								'
+										grid-cols-8
+										grid-rows-5
+										place-items-center'
 						>
-							<h2
-								className='
-										justify-self-center
-										self-center
-										w-full
-										text-8xl
-										font-semibold
-										text-center
-										-mt-3
-									'
-							>
-								<TypewriterText />
-							</h2>
-						</div>
-						<motion.div
-							initial={{ opacity: 0, scale: 0.75 }}
-							whileInView={{
-								opacity: 1,
-								scale: 1,
-							}}
-							transition={{
-								delay: 2,
-								duration: 1.75,
-								ease: 'easeOut',
-							}}
-							viewport={{ once: true }}
-							id='imageContainer'
+							<HeroHeading />
+							<HeroDescription />
+							<HeroButton />
+							<Asterisk1 />
+							<HeroImage />
+						</section>
+						{/* SECTION 2 */}
+						<section
+							id='what-is-opnwal'
 							className='
-									h-[1028px]
-									w-[1028px]
-									flex
-									rounded-t-full
-									bg-primaryBlue
-									border-2
-									border-black
-									drop-shadow-2xl
+										grid
+										grid-cols-8
+										grid-rows-5
+										place-items-center
+										max-h-[560px]'
+						>
+							<S2MainContent />
+							<InfoCircle />
+							<Squiggle1 />
+							<Asterisk2 />
+							<Asterisk3 />
+						</section>
+						{/* SECTION 3 */}
+						<section
+							id='s3'
+							className='
+										grid
+										grid-cols-8
+										grid-rows-5
+										max-h-[860px]
+									'
+						>
+							<Squiggle2 />
+							<S3ContentDiv />
+						</section>
+						{/* FAQs SECTION */}
+						<section
+							id='faqsSection'
+							className='
+										max-h-min
+										flex
+										m-auto
 									'
 						>
 							<motion.div
+								id='faqsContentDiv'
 								initial={{ opacity: 0, scale: 0.9, y: 30 }}
 								whileInView={{
 									opacity: 1,
@@ -293,76 +125,51 @@ const LandingPage = () => {
 									y: 0,
 								}}
 								transition={{
-									delay: 0.1,
 									duration: 1.75,
 									ease: 'easeOut',
 								}}
 								viewport={{ once: true }}
-								id='imageDiv'
 								className='
-										flex
-										self-center
-										m-auto
-										h-[857px]
-										w-[857px]
-										rounded-t-full
-										border-2
-										border-black
-										overflow-hidden
-										object-fill
-									'
+											drop-shadow-2xl
+											grid
+											grid-cols-1
+											grid-rows-1
+											min-h-max
+											mx-auto
+										'
 							>
-								<Image
-									className='h-full w-full object-cover'
-									src='/s5Image/pexels-anna-shvets-4483218.jpg'
-									width='1920'
-									height='1280'
-									alt='Woman walking past art collection'
-								/>
+								<S4HeadingDiv />
+								<FaqsDivContainer />
 							</motion.div>
-						</motion.div>
-						<JoinOpnwalButton />
-						<div className='mt-26'>
-							<Squiggle1 />
-						</div>
-					</section>
-				</main>
-
-				{/* FOOTER */}
-
-				<footer id='footer' className='py-28 block'>
-					<div
-						id='socialIcons'
-						className='mb-9 w-auto grid grid-cols-1 grid-rows-1 justify-items-center'
-					>
-						<Button variant='ghost' size='iconJumbo'>
-							<Image
-								className='justify-self-center'
-								src='/socialIcons/instagramIcon.svg'
-								width='50'
-								height='50'
-								alt='Instagram Icon'
-							/>
-						</Button>
-					</div>
-					<p className='text-center'>
-						© 2024 Opnwal, All Rights Reserved
-					</p>
-				</footer>
+						</section>
+						{/* SECTION 5 */}
+						<section
+							id='s5'
+							className='
+										pt-36
+										relative
+										grid
+										justify-items-center
+									'
+						>
+							<S5HeadingWrapper>
+								<TypewriterText />
+							</S5HeadingWrapper>
+							<S5ImageWrapper>
+								<S5Image />
+							</S5ImageWrapper>
+							<JoinOpnwalButton />
+							<div className='mt-26'>
+								<Squiggle1 />
+							</div>
+						</section>
+					</main>
+					{/* FOOTER */}
+					<LandingPageFooter />
+				</div>
 			</div>
-		</div>
+		</SessionProvider>
 	);
 };
 
 export default LandingPage;
-
-// <div className='flex'>
-// 	<SideNav />
-// 	<main className='flex-1'>
-// 		<MarginWidthWrapper>
-// 			<Header />
-// 			<HeaderMobile />
-// 			<PageWrapper>{children}</PageWrapper>
-// 		</MarginWidthWrapper>
-// 	</main>
-// </div>;
