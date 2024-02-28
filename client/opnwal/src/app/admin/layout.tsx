@@ -14,13 +14,10 @@ export default function Layout({
 		<html lang='en'>
 			<Providers>
 				<body className='flex'>
-					<SideNav />
 					<main className='flex-1'>
-						<MarginWidthWrapper>
-							<Header />
-							<HeaderMobile />
-							<PageWrapper>{children}</PageWrapper>
-						</MarginWidthWrapper>
+						<Header />
+						<HeaderMobile />
+						<PageWrapper>{children}</PageWrapper>
 					</main>
 				</body>
 			</Providers>

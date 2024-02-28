@@ -5,7 +5,9 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
 	{
 		title: 'Dashboard',
 		path: '/admin/dashboard',
-		icon: <Icon icon='lucide:home' width='24' height='24' />,
+		icon: (
+			<Icon icon='lucide:layout-dashboard' width='24' height='24' />
+		),
 	},
 	{
 		title: 'My Feed',
@@ -15,7 +17,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
 	{
 		title: 'Create',
 		path: '/admin/create',
-		icon: <Icon icon='lucide:plus-circle' width='24' height='24' />,
+		icon: <Icon icon='lucide:pencil-ruler' width='24' height='24' />,
 		submenu: true,
 		subMenuItems: [
 			{ title: 'New Post', path: '/admin/create/new-post' },
@@ -26,7 +28,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
 	{
 		title: 'Products',
 		path: '/admin/products',
-		icon: <Icon icon='lucide:barcode' width='24' height='24' />,
+		icon: <Icon icon='lucide:box' width='24' height='24' />,
 		submenu: true,
 		subMenuItems: [
 			{ title: 'All Products', path: '/admin/products' },
@@ -37,7 +39,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
 	{
 		title: 'Payments',
 		path: '/admin/payments',
-		icon: <Icon icon='lucide:credit-card' width='24' height='24' />,
+		icon: <Icon icon='lucide:wallet' width='24' height='24' />,
 		submenu: true,
 		subMenuItems: [
 			{ title: 'Payment Details', path: '/admin/payments/' },
@@ -48,14 +50,14 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
 	{
 		title: 'Contacts',
 		path: '/admin/contacts',
-		icon: <Icon icon='lucide:notebook-tabs' width='24' height='24' />,
+		icon: <Icon icon='lucide:contact-2' width='24' height='24' />,
 		submenu: true,
 		subMenuItems: [
 			{ title: 'All Contacts', path: '/admin/contacts' },
 			{ title: 'Artists', path: '/admin/contacts/artists' },
-			{ title: 'Venues', path: '/admin/contacts/venues' },
+			{ title: 'Businesses', path: '/admin/contacts/businesses' },
 			{ title: 'Collectors', path: '/admin/contacts/collectors' },
-			{ title: 'Installers', path: '/admin/contacts/installers' },
+			// { title: 'Installers', path: '/admin/contacts/installers' },
 		],
 	},
 	{
@@ -63,7 +65,11 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
 		path: '/admin/messages',
 		icon: <Icon icon='lucide:mail' width='24' height='24' />,
 	},
-
+	{
+		title: 'Notifications',
+		path: '/admin/notifications',
+		icon: <Icon icon='lucide:bell' width='24' height='24' />,
+	},
 	{
 		title: 'Settings',
 		path: '/admin/settings',
