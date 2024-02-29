@@ -2,7 +2,7 @@ import '../styles/globals.css';
 
 import type { Metadata } from 'next';
 import { DM_Sans } from 'next/font/google';
-import { Providers } from '@/app/Providers';
+import { AuthProvider } from '@/app/context/AuthProvider';
 
 const dmSans = DM_Sans({
 	subsets: ['latin'],
@@ -24,9 +24,9 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en'>
-			<Providers>
+			<AuthProvider>
 				<body className={`${dmSans.className}`}>{children}</body>
-			</Providers>
+			</AuthProvider>
 		</html>
 	);
 }

@@ -1,47 +1,53 @@
 'use client';
 
 import Link from 'next/link';
+import { Button } from '@/components/global/button';
 
 export default function NotFound() {
 	return (
 		<div
 			className='
-				h-[100vh] 
-				w-[100vw] 
+				h-screen
+				w-screen
+				flex
 				bg-gradient-to-br 
 				from-sky-100 
 				via-pink-100 
 				to-amber-100 
 				justify-center
-				items-center'
+				items-center
+				z-50'
 		>
 			<div
-				classname='
-				h-[50%]
-				w-[50%]
-				relative
-				p-5
-				flex
-				flex-col
-				justify-center
-				items-center
-				bg-primaryBlue/10
-				rounded-[7%]
-				border
-				border-black
-				overflow-auto
-				pb-10
-				m-auto
+				className='
+					relative
+					p-5
+					flex
+					flex-col
+					justify-center
+					items-center
+					bg-primaryBlue/10
+					rounded-[30px]
+					border
+					border-black
+					overflow-auto
+					pb-10
 				'
 			>
-				<h2 className='text-5xl font-medium text-center'>
+				<h1 className='text-5xl mb-3 mt-5 flex min-w-min font-medium text-center'>
+					404
+				</h1>
+				<h2 className='text-4xl mb-10 mt-5 flex min-w-min font-medium text-center'>
 					Page Not Found
 				</h2>
-				<p className='text-xl font-medium text-center'>
+				<p className='text-xl mb-7 flex m-auto min-w-min font-medium text-center'>
 					Could not find requested resource
 				</p>
-				<Link href='/' className='text-xl font-medium text-center justify-self-center'>
-					Return Home
+				<Link
+					href='/'
+					className='text-xl font-medium min-w-min m-auto flex justify-self-center text-center'
+				>
+					<Button>Home</Button>
 				</Link>
 			</div>
 		</div>

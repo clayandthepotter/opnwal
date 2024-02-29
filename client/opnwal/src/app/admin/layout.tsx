@@ -1,9 +1,7 @@
 import Header from '@/components/ui/dashboard/header/header';
 import HeaderMobile from '@/components/ui/dashboard/header/headerMobile';
-import MarginWidthWrapper from '@/components/ui/dashboard/global/marginWidthWrapper';
 import PageWrapper from '@/components/ui/dashboard/global/pageWrapper';
-import SideNav from '@/components/ui/dashboard/nav/sideNav';
-import { Providers } from '@/app/Providers';
+import { AuthProvider } from '@/app/context/AuthProvider';
 
 export default function Layout({
 	children,
@@ -12,7 +10,7 @@ export default function Layout({
 }) {
 	return (
 		<html lang='en'>
-			<Providers>
+			<AuthProvider>
 				<body className='flex'>
 					<main className='flex-1'>
 						<Header />
@@ -20,7 +18,7 @@ export default function Layout({
 						<PageWrapper>{children}</PageWrapper>
 					</main>
 				</body>
-			</Providers>
+			</AuthProvider>
 		</html>
 	);
 }

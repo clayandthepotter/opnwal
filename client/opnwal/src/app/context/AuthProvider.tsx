@@ -2,7 +2,7 @@
 
 import { SessionProvider } from 'next-auth/react';
 
-export const Providers = ({
+export const AuthProvider = ({
 	children,
 }: {
 	children: React.ReactNode;
