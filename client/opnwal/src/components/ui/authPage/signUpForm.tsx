@@ -39,7 +39,7 @@ export default function SignUpForm() {
 	});
 
 	const onSubmit = (values: z.infer<typeof formSchema>) => {
-		// do something with the values
+		// do something with the form values
 		console.log(values);
 	};
 
@@ -162,6 +162,7 @@ export default function SignUpForm() {
 										<FormLabel>Password</FormLabel>
 										<FormControl>
 											<Input
+												type='password'
 												placeholder='Choose your password'
 												{...field}
 											/>
@@ -180,6 +181,7 @@ export default function SignUpForm() {
 										<FormLabel>Confirm Password</FormLabel>
 										<FormControl>
 											<Input
+												type='password'
 												placeholder='Confirm your password'
 												{...field}
 											/>

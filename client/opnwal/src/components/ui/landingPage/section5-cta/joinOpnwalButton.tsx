@@ -27,7 +27,7 @@ const JoinOpnwalButton = () => {
 				className='drop-shadow-2xl border z-30 -m-12 hover:border-2'
 				asChild
 			>
-				<Link href='/signup'>Join Opnwal</Link>
+				<Link href='/sign-up'>Join Opnwal</Link>
 			</Button>
 		</motion.div>
 	);

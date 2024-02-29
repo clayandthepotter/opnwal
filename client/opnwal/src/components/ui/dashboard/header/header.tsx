@@ -14,7 +14,7 @@ import {
 } from '@/components/global/sheet';
 
 import useScroll from '@/hooks/useScroll';
-import { cn } from '@/lib/utils';
+import { cn } from '../../../../lib/utils';
 import Image from 'next/image';
 import { MenuItem } from '@/components/ui/dashboard/nav/sideNav';
 import { SIDENAV_ITEMS } from '@/constants';
