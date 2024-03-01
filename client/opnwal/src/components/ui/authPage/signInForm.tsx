@@ -1,6 +1,5 @@
 'use client';
 
-
 import GoogleSignInButton from '@/components/ui/signIn/googleSignInButton';
 import { useState } from 'react';
 import { Button } from '@/components/global/button';
@@ -24,8 +23,7 @@ const formSchema = z.object({
 });
 
 export default function SignInForm() {
-
-  const form = useForm<z.infer<typeof formSchema>>({
+	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
 			email: '',
@@ -33,11 +31,10 @@ export default function SignInForm() {
 		},
 	});
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
+	const onSubmit = (values: z.infer<typeof formSchema>) => {
 		// do something with the values
 		console.log(values);
 	};
-
 
 	return (
 		<div
@@ -70,13 +67,14 @@ export default function SignInForm() {
               border-black
               overflow-auto
               pb-10
+							min-w-[350px]
             '
 				>
 					<h1 className='text-5xl text-black mt-5 mb-3'>Sign In</h1>
 					<p className='text-sm mt-3'>With Email</p>
-					<div className='p-5 flex-col'>
+					<div className='p-5 flex-col min-w-[300px]'>
 						<hr className='border border-black w-full mb-5' />
-						<div className='flex'>
+						<div className='flex w-full'>
 							<FormField
 								control={form.control}
 								name='email'
@@ -85,6 +83,7 @@ export default function SignInForm() {
 										<FormLabel>Email</FormLabel>
 										<FormControl>
 											<Input
+												className='min-w-[280px]'
 												placeholder='email@example.com'
 												{...field}
 											/>
@@ -103,7 +102,9 @@ export default function SignInForm() {
 										<FormLabel>Password</FormLabel>
 										<FormControl>
 											<Input
-												placeholder='Choose your password'
+												className='min-w-[280px]'
+												placeholder='Your password'
+												type='password'
 												{...field}
 											/>
 										</FormControl>
@@ -126,7 +127,7 @@ export default function SignInForm() {
 							With Social Media
 						</p>
 						<GoogleSignInButton />
-						<p className='text-sm mt-5'>
+						<p className='text-sm mt-5 text-center'>
 							Dont have an account?{' '}
 							<Link
 								href={'/sign-up'}

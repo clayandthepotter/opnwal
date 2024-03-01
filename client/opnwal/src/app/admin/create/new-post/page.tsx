@@ -1,7 +1,7 @@
 const NewPost = () => {
 	return (
 		<>
-			<span className='font-bold text-4xl'>Create your new post</span>
+			<span className='font-bold text-4xl'>Create Post</span>
 			<div className='border-dashed border border-zinc-500 w-full h-12 rounded-lg'></div>
 			<div className='border-dashed border border-zinc-500 w-full h-64 rounded-lg'></div>
 			<div className='border-dashed border border-zinc-500 w-full h-64 rounded-lg'></div>

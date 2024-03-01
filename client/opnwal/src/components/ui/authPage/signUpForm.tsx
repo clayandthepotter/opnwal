@@ -17,18 +17,46 @@ import {
 	FormMessage,
 } from '@/components/global/form';
 
-const formSchema = z.object({
-	firstName: z.string().nonempty(),
-	lastName: z.string().nonempty(),
-	phoneNumber: z.string().nonempty(),
-	email: z.string().email(),
-	password: z.string().nonempty(),
-	confirmPassword: z.string().nonempty(),
-});
+const formSchema = z
+	.object({
+		username: z
+			.string()
+			.min(6, 'Minimum of 6 characters required')
+			.max(20),
+		firstName: z
+			.string()
+			.min(2, 'Minimum of two characters required')
+			.max(20),
+		lastName: z
+			.string()
+			.min(2, 'Minimum of two characters required')
+			.max(20),
+		phoneNumber: z
+			.string()
+			.min(10, 'Minimum of ten characters required')
+			.max(15),
+		email: z.string().email('Invalid email address'),
+		password: z
+			.string()
+			.min(
+				8,
+				'Minimum requirements: 8 characters, 1 uppercase, 1 lowercase, 1 number, and 1 special character.'
+			)
+			.regex(
+				/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,}$/
+			),
+		confirmPassword: z.string(),
+	})
+	.refine((data) => data.password === data.confirmPassword, {
+		message: "Passwords don't match",
+		path: ['confirmPassword'], // This specifies that the error should be associated with the confirmPassword field
+	});
+
 export default function SignUpForm() {
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
+			username: '',
 			firstName: '',
 			lastName: '',
 			phoneNumber: '',
@@ -88,6 +116,24 @@ export default function SignUpForm() {
                   min-w-[350px]'
 					>
 						<hr className='border border-black w-full mb-5' />
+						<div className='flex-col'>
+							<FormField
+								control={form.control}
+								name='username'
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>Username</FormLabel>
+										<FormControl>
+											<Input
+												placeholder='Choose your username'
+												{...field}
+											/>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+						</div>
 						<div className='flex'>
 							<div className='flex-col pr-2'>
 								<FormField
@@ -211,12 +257,12 @@ export default function SignUpForm() {
 						</p>
 						<GoogleSignUpButton />
 						<p className='text-sm mt-5 text-center'>
-							Dont have an account?{' '}
+							Already have an account?{' '}
 							<Link
-								href={'/sign-up'}
+								href={'/sign-in'}
 								className='decoration-underline text-primaryBlue hover:underline'
 							>
-								Sign Up
+								Sign In
 							</Link>
 						</p>
 					</div>
