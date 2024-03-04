@@ -1,7 +1,6 @@
 'use client';
 
 import GoogleSignInButton from '@/components/ui/signIn/googleSignInButton';
-import { useState } from 'react';
 import { Button } from '@/components/global/button';
 import { Input } from '@/components/global/input';
 import Link from 'next/link';
@@ -16,6 +15,8 @@ import {
 	FormLabel,
 	FormMessage,
 } from '@/components/global/form';
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 const formSchema = z.object({
 	email: z.string().email(),
@@ -31,18 +32,31 @@ export default function SignInForm() {
 		},
 	});
 
-	const onSubmit = (values: z.infer<typeof formSchema>) => {
-		// do something with the values
-		console.log(values);
+	const onSubmit = async (values: z.infer<typeof formSchema>) => {
+		const result = await signIn('credentials', {
+			redirect: false, // Prevent NextAuth from redirecting automatically
+			email: values.email,
+			password: values.password,
+			callbackUrl: `${window.location.origin}/admin`, // Specify where to redirect after a successful login
+		});
+
+		if (result?.error) {
+			// Handle errors, e.g., show an error message to the user
+			console.error(result.error);
+		} else {
+			// Redirect the user after successful login
+			const router = useRouter();
+			router.push(result?.url || '/admin');
+		}
 	};
 
 	return (
 		<div
-			id='signupForm'
 			className='
 					relative
 					w-[100vw]
 					h-[100vh]
+					p-10
 					flex
 					flex-col
 					justify-center
@@ -53,7 +67,7 @@ export default function SignInForm() {
 			<Form {...form}>
 				<form
 					onSubmit={form.handleSubmit(onSubmit)}
-					id='signupForm'
+					id='signInForm'
 					className='
               relative
               p-5
@@ -65,16 +79,16 @@ export default function SignInForm() {
               rounded-[30px]
               border
               border-black
-              overflow-auto
+              overflow-scroll
               pb-10
 							min-w-[350px]
             '
 				>
 					<h1 className='text-5xl text-black mt-5 mb-3'>Sign In</h1>
-					<p className='text-sm mt-3'>With Email</p>
+					{/* <p className='text-sm mt-3'>With Email</p> */}
 					<div className='p-5 flex-col min-w-[300px]'>
-						<hr className='border border-black w-full mb-5' />
-						<div className='flex w-full'>
+						{/* <hr className='border border-black w-full mb-5' /> */}
+						{/* <div className='flex w-full'>
 							<FormField
 								control={form.control}
 								name='email'
@@ -112,8 +126,8 @@ export default function SignInForm() {
 									</FormItem>
 								)}
 							/>
-						</div>
-						<div>
+						</div> */}
+						{/* <div>
 							<Button
 								variant='defaultWidthFull'
 								type='submit'
@@ -121,11 +135,11 @@ export default function SignInForm() {
 							>
 								Sign In
 							</Button>
-						</div>
-						<hr className='border border-black w-full mt-5 mb-2' />
-						<p className='text-sm mb-3 text-center'>
+						</div> */}
+						{/* <hr className='border border-black w-full mt-5 mb-2' /> */}
+						{/* <p className='text-sm mb-3 text-center'>
 							With Social Media
-						</p>
+						</p> */}
 						<GoogleSignInButton />
 						<p className='text-sm mt-5 text-center'>
 							Dont have an account?{' '}

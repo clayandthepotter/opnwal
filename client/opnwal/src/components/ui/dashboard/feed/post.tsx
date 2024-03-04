@@ -1,20 +1,24 @@
 export default function Post({
 	id,
 	title,
-	content,
-	authorName,
+	description,
+	username,
+	likes,
+	comments,
 }: {
 	id: string;
 	title: string;
-	content: any;
-	authorName: string | null | undefined;
+	description: string;
+	username: string;
+	likes: any;
+	comments: any;
 }) {
 	return (
 		<div
 			key={id}
 			className='flex-col content-around justify-center relative bg-white row border my-5 px-3 py-4 border-black w-full min-h-[750px] rounded-[36px] drop-shadow-xl max-w-[550px]'
 		>
-			<h3 className='font-bold text-3xl pt-2'>@{authorName}</h3>
+			<h3 className='font-bold text-3xl pt-2'>@{username}</h3>
 			<div className='flex mt-5 overflow-hidden border justify-center align-middle bg-primaryBlue/10 border-black min-w-[50%] h-[400px] rounded-[30px]'>
 				<p className='m-auto align-middle'>Image</p>
 			</div>
@@ -57,7 +61,7 @@ export default function Post({
 			<div className='mt-5 pl-2 flex-col border-l border-l-primaryBlue'>
 				<h5 className='text-xl font-semibold'>{title}</h5>
 				<p className='break-normal text-lg mt-1 h-[100px] overflow-scroll'>
-					{content}
+					{description}
 				</p>
 			</div>
 		</div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Button } from '@/components/global/button';
 import { Input } from '@/components/global/input';
 import GoogleSignUpButton from '@/components/ui/signUp/googleSignUpButton';
@@ -16,26 +16,51 @@ import {
 	FormLabel,
 	FormMessage,
 } from '@/components/global/form';
+import { PrismaClient } from '@prisma/client';
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from '@/components/global/select';
+
+const prisma = new PrismaClient();
 
 const formSchema = z
 	.object({
 		username: z
-			.string()
+			.string({
+				required_error: 'Please choose a username.',
+			})
 			.min(6, 'Minimum of 6 characters required')
 			.max(20),
+		userType: z.string({
+			required_error: 'Please choose a User Type.',
+		}),
 		firstName: z
-			.string()
+			.string({
+				required_error: 'Please enter your first name.',
+			})
 			.min(2, 'Minimum of two characters required')
 			.max(20),
 		lastName: z
-			.string()
+			.string({
+				required_error: 'Please enter your last name.',
+			})
 			.min(2, 'Minimum of two characters required')
 			.max(20),
 		phoneNumber: z
-			.string()
+			.string({
+				required_error: 'Please enter your phone number.',
+			})
 			.min(10, 'Minimum of ten characters required')
 			.max(15),
-		email: z.string().email('Invalid email address'),
+		email: z
+			.string({
+				required_error: 'Please enter your email.',
+			})
+			.email('Invalid email address'),
 		password: z
 			.string()
 			.min(
@@ -57,6 +82,7 @@ export default function SignUpForm() {
 		resolver: zodResolver(formSchema),
 		defaultValues: {
 			username: '',
+			userType: '',
 			firstName: '',
 			lastName: '',
 			phoneNumber: '',
@@ -66,12 +92,22 @@ export default function SignUpForm() {
 		},
 	});
 
-	const onSubmit = (values: z.infer<typeof formSchema>) => {
-		// do something with the form values
+	const onSubmit = async (values: z.infer<typeof formSchema>) => {
+		await prisma.user.create({
+			data: {
+				username: values.username,
+				userType: values.userType,
+				firstName: values.firstName,
+				lastName: values.lastName,
+				phoneNumber: values.phoneNumber,
+				email: values.email,
+				password: values.password,
+			},
+		});
 		console.log(values);
 	};
 
-	const [isVisible, setIsVisible] = useState(false);
+	// const [isVisible, setIsVisible] = useState(false);
 
 	return (
 		<div
@@ -116,23 +152,58 @@ export default function SignUpForm() {
                   min-w-[350px]'
 					>
 						<hr className='border border-black w-full mb-5' />
-						<div className='flex-col'>
-							<FormField
-								control={form.control}
-								name='username'
-								render={({ field }) => (
-									<FormItem>
-										<FormLabel>Username</FormLabel>
-										<FormControl>
-											<Input
-												placeholder='Choose your username'
-												{...field}
-											/>
-										</FormControl>
-										<FormMessage />
-									</FormItem>
-								)}
-							/>
+						<div className='flex'>
+							<div className='flex-col pr-2'>
+								<FormField
+									control={form.control}
+									name='username'
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>Username</FormLabel>
+											<FormControl>
+												<Input
+													placeholder='Choose your username'
+													{...field}
+												/>
+											</FormControl>
+											<FormMessage />
+										</FormItem>
+									)}
+								/>
+							</div>
+							<div className='flex-col pl-2'>
+								<FormField
+									control={form.control}
+									name='userType'
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>User Type</FormLabel>
+											<Select
+												onValueChange={field.onChange}
+												defaultValue={field.value}
+											>
+												<FormControl>
+													<SelectTrigger>
+														<SelectValue placeholder='Select your user type' />
+													</SelectTrigger>
+												</FormControl>
+												<SelectContent>
+													<SelectItem value='ARTIST'>
+														Artist
+													</SelectItem>
+													<SelectItem value='BUSINESS'>
+														Business
+													</SelectItem>
+													<SelectItem value='COLLECTOR'>
+														Collector
+													</SelectItem>
+												</SelectContent>
+											</Select>
+											<FormMessage />
+										</FormItem>
+									)}
+								/>
+							</div>
 						</div>
 						<div className='flex'>
 							<div className='flex-col pr-2'>

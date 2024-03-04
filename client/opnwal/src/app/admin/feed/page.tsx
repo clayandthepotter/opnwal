@@ -4,13 +4,20 @@ const prisma = new PrismaClient();
 
 async function getPosts() {
 	const posts = await prisma.post.findMany({
-		where: { published: true },
+		where: {
+			published: true,
+		},
 		include: {
-			author: {
-				select: { name: true },
+			user: {
+				select: {
+					username: true, // Fetches the username from the User model
+				},
 			},
+			comments: true, // Fetches all related comments for each post
+			likes: true, // Fetches all related likes for each post
 		},
 	});
+
 	return posts;
 }
 
@@ -26,18 +33,15 @@ export default async function Feed() {
 				<div className='m-auto min-w-[550px] min-h-[770px] justify-self-center'>
 					<Post
 						key={post.id}
-						id={post.id}
-						title={post.title}
-						content={post.content}
-						authorName={post.author?.name}
+						id={post.id.toString()}
+						title={post.title ? post.title : ''}
+						description={post.description ? post.description : ''}
+						username={post.user.username ? post.user.username : ''}
+						likes={post.likes}
+						comments={post.comments}
 					/>
 				</div>
 			))}
-			<div className='border-dashed border border-zinc-500 w-full h-64 rounded-lg'></div>
-			<div className='border-dashed border border-zinc-500 w-full h-64 rounded-lg'></div>
-			<div className='border-dashed border border-zinc-500 w-full h-64 rounded-lg'></div>
-			<div className='border-dashed border border-zinc-500 w-full h-64 rounded-lg'></div>
-			<div className='border-dashed border border-zinc-500 w-full h-64 rounded-lg'></div>
 		</div>
 	);
 }

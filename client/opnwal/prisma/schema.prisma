@@ -1,36 +1,208 @@
-// schema.prisma
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "postgresql"
-  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  url      = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+enum UserType {
+  ARTIST
+  BUSINESS
+  COLLECTOR
+}
+
+model User {
+  id                Int                @id @default(autoincrement())
+  username          String?            @unique 
+  firstName         String
+  lastName          String
+  businessName      String?
+  phoneNumber       String             @unique
+  email             String             @unique
+  password          String
+  userType          UserType
+  profile           Profile?
+  posts             Post[]
+  products          Product[]
+  comments          Comment[]
+  likes             Like[]
+  paymentSettings   PaymentSetting[]
+  invoices          Invoice[]
+  orders            Order[]
+  accountSettings   AccountSetting[]
+  privacySettings   PrivacySetting[]
+  sentMessages      Message[]          @relation("MessageSender")
+  receivedMessages  Message[]          @relation("MessageReceiver")
+  userFollowings    UserFollowing[]    @relation("UserFollowings")
+  userFollowers     UserFollowing[]    @relation("UserFollowers")
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+}
+
+model Profile {
+  id                Int             @id @default(autoincrement())
+  userId            Int             @unique
+  user              User            @relation(fields: [userId], references: [id])
+  bio               String?
+  location          String?
+  image             String?
+  category          String?
+  interests         String?
+  profileSettings   ProfileSetting[]  // Add this line to reference settings directly
+}
+
+model Post {
+  id          Int             @id @default(autoincrement())
+  title       String?
+  description String?
+  imageUrl    String?
+  videoUrl    String?
+  userId      Int
+  user        User            @relation(fields: [userId], references: [id])
+  published   Boolean         @default(false)
+  comments    Comment[]
+  likes       Like[]
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+}
+
+model Product {
+  id                Int       @id @default(autoincrement())
+  title             String
+  description       String
+  dimensions        String
+  buyNowPrice       Float
+  startingBidPrice  Float?
+  auctionTimer      DateTime?
+  imageUrl          String
+  userId            Int
+  user              User      @relation(fields: [userId], references: [id])
+  published         Boolean   @default(false)
+  comments          Comment[]
+  likes             Like[]
+  orders            OrderItem[]
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+}
+
+model Comment {
+  id          Int       @id @default(autoincrement())
+  content     String
+  postId      Int?
+  productId   Int?
+  post        Post?     @relation(fields: [postId], references: [id])
+  product     Product?  @relation(fields: [productId], references: [id])
+  userId      Int
+  user        User      @relation(fields: [userId], references: [id])
+  createdAt   DateTime  @default(now())
+}
+
+model Like {
+  id          Int       @id @default(autoincrement())
+  postId      Int?
+  productId   Int?
+  post        Post?     @relation(fields: [postId], references: [id])
+  product     Product?  @relation(fields: [productId], references: [id])
+  userId      Int
+  user        User      @relation(fields: [userId], references: [id])
+}
+
+model PaymentSetting {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  method    String   // e.g., 'PayPal', 'BankTransfer'
+  details   Json     // Stores payment method details, flexible for different payment methods
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Invoice {
+  id          Int      @id @default(autoincrement())
+  orderId     Int      @unique // Ensure uniqueness for one-to-one relation
+  order       Order    @relation(fields: [orderId], references: [id])
+  userId      Int      // Linking invoice to the specific user
+  user        User     @relation(fields: [userId], references: [id])
+  amount      Float
+  status      String   // Example: 'Paid', 'Pending', 'Overdue'
+  dueDate     DateTime
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Order {
+  id          Int       @id @default(autoincrement())
+  orderItems  OrderItem[]
+  userId      Int
+  user        User      @relation(fields: [userId], references: [id])
+  invoice     Invoice?  // Remove the fields and references here for clarity and correctness
+  status      String    // Example: 'Pending', 'Shipped', 'Delivered'
+  totalAmount Float
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model OrderItem {
+  id        Int      @id @default(autoincrement())
+  orderId   Int
+  order     Order    @relation(fields: [orderId], references: [id])
+  productId Int
+  product   Product  @relation(fields: [productId], references: [id])
+  quantity  Int
+  price     Float    // Price at the time of the order, if it varies
+  @@unique([orderId, productId])
+}
+
+model Message {
+  id          Int      @id @default(autoincrement())
+  senderId    Int
+  receiverId  Int
+  sender      User     @relation("MessageSender", fields: [senderId], references: [id])
+  receiver    User     @relation("MessageReceiver", fields: [receiverId], references: [id])
+  content     String
+  createdAt   DateTime @default(now())
+}
+
+model AccountSetting {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
+  settingType String   // e.g., 'Email', 'Password'
+  value       String   // Setting value, could be encrypted if sensitive
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ProfileSetting {
+  id          Int      @id @default(autoincrement())
+  profileId   Int
+  profile     Profile  @relation(fields: [profileId], references: [id])
+  settingType String
+  value       String   // This can store the value of the setting.
+  visibility  Boolean  // Assuming you want a visibility setting; adjust as needed for your application logic.
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model PrivacySetting {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
+  settingType String   // e.g., 'ProfileVisibility', 'MessagePrivacy'
+  value       Boolean  // True for enabled, false for disabled
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 
-model Posts {
-  id            String    @default(cuid()) @id
-  title         String?
-  textContent   String
-  fileURLs      String[]
-  createdAt     DateTime  @default(now()) @map(name: "created_at")
-  published     Boolean   @default(false)
-  author        Users?     @relation(fields: [authorId], references: [id])
-  authorId      String?
-}
-
-model Users {
-  id            String    @default(cuid()) @id
-  username      String?   @unique 
-  firstName     String
-  lastName      String
-  email         String    @unique
-  phoneNumber   String    @unique
-  password      String
-  createdAt     DateTime  @default(now()) @map(name: "created_at")
-  updatedAt     DateTime  @updatedAt @map(name: "updated_at")
-  posts         Posts[]
+// Explicit Many-to-Many Relations
+model UserFollowing {
+  userFollowingId Int
+  userFollowerId  Int
+  userFollowing   User @relation("UserFollowings", fields: [userFollowingId], references: [id])
+  userFollower    User @relation("UserFollowers", fields: [userFollowerId], references: [id])
+  @@id([userFollowingId, userFollowerId])
 }
