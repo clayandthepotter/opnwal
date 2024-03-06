@@ -13,7 +13,15 @@ async function getPosts() {
 					username: true, // Fetches the username from the User model
 				},
 			},
-			comments: true, // Fetches all related comments for each post
+			comments: {
+				include: {
+					user: {
+						select: {
+							username: true, // Fetches the username from the User model for each comment
+						},
+					},
+				},
+			},
 			likes: true, // Fetches all related likes for each post
 		},
 	});
@@ -26,22 +34,26 @@ export default async function Feed() {
 	console.log({ posts });
 	return (
 		<div className='flex flex-col justify-center'>
-			<span className='font-bold text-4xl md:m-auto max-w-[550px] justify-self-center'>
+			<span className='font-bold text-4xl hidden md:m-auto max-w-[550px] justify-self-center'>
 				My Feed
 			</span>
 			{posts.map((post) => (
-				<div className='m-auto min-w-[550px] min-h-[770px] justify-self-center'>
+				<div className='m-auto max-w-[400px] min-h-[770px] justify-self-center'>
 					<Post
 						key={post.id}
 						id={post.id.toString()}
 						title={post.title ? post.title : ''}
 						description={post.description ? post.description : ''}
 						username={post.user.username ? post.user.username : ''}
+						imageUrls={post.imageUrls}
 						likes={post.likes}
 						comments={post.comments}
 					/>
 				</div>
 			))}
+			<div className='pt-10 pb-14'>
+				<p className='text-center'>You have reached the end</p>
+			</div>
 		</div>
 	);
 }

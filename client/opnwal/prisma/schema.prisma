@@ -58,8 +58,7 @@ model Post {
   id          Int             @id @default(autoincrement())
   title       String?
   description String?
-  imageUrl    String?
-  videoUrl    String?
+  imageUrls   String[]
   userId      Int
   user        User            @relation(fields: [userId], references: [id])
   published   Boolean         @default(false)

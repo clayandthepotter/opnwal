@@ -20,6 +20,11 @@ import { MenuItem } from '@/components/ui/dashboard/nav/sideNav';
 import { SIDENAV_ITEMS } from '@/constants';
 
 const user = 'User';
+const notifications = [
+	'Notification 1',
+	'Notification 2',
+	'Notification 3',
+];
 
 const Header = () => {
 	const scrolled = useScroll(5);
@@ -30,8 +35,7 @@ const Header = () => {
 			className={cn(
 				`flex md:justify-between sticky inset-x-0 top-0 z-30 w-full transition-all px-3 py-1 `,
 				{
-					'border-b border-black bg-white/75 backdrop-blur-lg':
-						scrolled,
+					'border-b border-black bg-white backdrop-blur-lg': scrolled,
 					'border-b border-black bg-white': selectedLayout,
 				}
 			)}
@@ -112,23 +116,37 @@ const Header = () => {
 				{/* NOTIFICATION BELL */}
 
 				<div className='hidden md:flex h-[47px] items-center md:flex-row-reverse px-4'>
-					<div className='hidden md:block p-2 mx-3 hover:bg-zinc-100 rounded-full justify-center md:cursor-pointer'>
-						<svg
-							xmlns='http://www.w3.org/2000/svg'
-							width='24'
-							height='24'
-							viewBox='0 0 24 24'
-							fill='none'
-							stroke='currentColor'
-							stroke-width='2'
-							stroke-linecap='round'
-							stroke-linejoin='round'
-							className='lucide lucide-bell'
-						>
-							<path d='M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9' />
-							<path d='M10.3 21a1.94 1.94 0 0 0 3.4 0' />
-						</svg>
-					</div>
+					<Sheet>
+						<SheetTrigger>
+							<div className='hidden md:block p-2 mx-3 hover:bg-zinc-100 rounded-full justify-center md:cursor-pointer'>
+								<svg
+									xmlns='http://www.w3.org/2000/svg'
+									width='24'
+									height='24'
+									viewBox='0 0 24 24'
+									fill='none'
+									stroke='currentColor'
+									stroke-width='2'
+									stroke-linecap='round'
+									stroke-linejoin='round'
+									className='lucide lucide-bell'
+								>
+									<path d='M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9' />
+									<path d='M10.3 21a1.94 1.94 0 0 0 3.4 0' />
+								</svg>
+							</div>
+						</SheetTrigger>
+						<SheetContent>
+							<SheetHeader>
+								<SheetTitle>Notifications</SheetTitle>
+								<SheetDescription>
+									{notifications.map((notification) => (
+										<div>{notification}</div>
+									))}
+								</SheetDescription>
+							</SheetHeader>
+						</SheetContent>
+					</Sheet>
 
 					{/* SEARCH BAR */}
 

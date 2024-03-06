@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { Button } from '@/components/global/button';
 
 export default function NotFound() {
@@ -43,12 +42,7 @@ export default function NotFound() {
 				<p className='text-xl mb-7 flex m-auto min-w-min font-medium text-center'>
 					Could not find requested resource
 				</p>
-				<Link
-					href='/'
-					className='text-xl font-medium min-w-min m-auto flex justify-self-center text-center'
-				>
-					<Button>Home</Button>
-				</Link>
+				<Button onClick={() => window.history.back()}>Go Back</Button>
 			</div>
 		</div>
 	);

@@ -3,16 +3,21 @@ import { SideNavItem } from './types';
 
 export const SIDENAV_ITEMS: SideNavItem[] = [
 	{
-		title: 'Dashboard',
-		path: '/admin/dashboard',
-		icon: (
-			<Icon icon='lucide:layout-dashboard' width='24' height='24' />
-		),
+		title: 'Home',
+		path: '/admin/',
+		icon: <Icon icon='lucide:home' width='24' height='24' />,
 	},
 	{
 		title: 'My Feed',
 		path: '/admin/feed',
 		icon: <Icon icon='lucide:newspaper' width='24' height='24' />,
+	},
+	{
+		title: 'Dashboard',
+		path: '/admin/dashboard',
+		icon: (
+			<Icon icon='lucide:layout-dashboard' width='24' height='24' />
+		),
 	},
 	{
 		title: 'Create',

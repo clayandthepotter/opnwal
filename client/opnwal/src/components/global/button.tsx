@@ -52,22 +52,22 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 	({ className, variant, size, asChild = false, ...props }, ref) => {
 		const Comp = asChild ? Slot : 'button';
 		return (
-			<motion.div
-				animate={{ opacity: 1, scale: 1 }}
-				whileHover={{ y: -0.5, scale: 1.05 }}
-				transition={{
-					type: 'spring',
-					damping: 7,
-					stiffness: 50,
-					restDelta: 0.001,
-				}}
-			>
-				<Comp
-					className={cn(buttonVariants({ variant, size, className }))}
-					ref={ref}
-					{...props}
-				/>
-			</motion.div>
+			// <motion.div
+			// 	animate={{ opacity: 1, scale: 1 }}
+			// 	whileHover={{ scale: 1.05 }}
+			// 	transition={{
+			// 		type: 'spring',
+			// 		damping: 7,
+			// 		stiffness: 50,
+			// 		restDelta: 0.001,
+			// 	}}
+			// >
+			<Comp
+				className={cn(buttonVariants({ variant, size, className }))}
+				ref={ref}
+				{...props}
+			/>
+			// </motion.div>
 		);
 	}
 );
