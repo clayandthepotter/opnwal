@@ -21,8 +21,10 @@ import { Textarea } from '@/components/global/textarea';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Comments from '@/components/ui/dashboard/feed/comments';
+import { prisma } from '@/lib/db';
+import { useState } from 'react';
 
-export default function Post({
+export default async function Post({
 	id,
 	title,
 	description,
@@ -39,6 +41,22 @@ export default function Post({
 	likes: any;
 	comments: any;
 }) {
+	// const [content, setContent] = useState('');
+	// const [userId, setUserId] = useState('');
+	// const [postId, setPostId] = useState('');
+
+	// const handleSubmit = async () => {
+	// 	const comment = await prisma.comment.create({
+	// 		data: {
+	// 			content: { content },
+	// 			userId: { userId },
+	// 			postId: { postId },
+	// 			productId: { productId },
+	// 			username: { username },
+	// 		},
+	// 	});
+	// };
+
 	return (
 		<div
 			key={id}
@@ -149,12 +167,21 @@ export default function Post({
 						<DialogHeader>
 							<DialogTitle>Comments</DialogTitle>
 							<DialogDescription>
-								<Comments comments={comments} />
-								<Textarea
-									placeholder='Add your comment...'
-									className='mb-3'
-								/>
-								<Button>Submit</Button>
+								<div className='flex flex-col content-between'>
+									<Comments comments={comments} />
+									<div>
+										<Textarea
+											maxLength={250}
+											placeholder='Add your comment...'
+											className='mb-3 max-h-[125px]'
+										/>
+										<div className='flex w-full justify-end'>
+											<Button variant='outline' onClick={() => {}}>
+												Submit
+											</Button>
+										</div>
+									</div>
+								</div>
 							</DialogDescription>
 						</DialogHeader>
 					</DialogContent>

@@ -18,8 +18,9 @@ import { cn } from '../../../../lib/utils';
 import Image from 'next/image';
 import { MenuItem } from '@/components/ui/dashboard/nav/sideNav';
 import { SIDENAV_ITEMS } from '@/constants';
+import { signOut, useSession } from 'next-auth/react';
 
-const user = 'User';
+// const user = 'User';
 const notifications = [
 	'Notification 1',
 	'Notification 2',
@@ -29,7 +30,12 @@ const notifications = [
 const Header = () => {
 	const scrolled = useScroll(5);
 	const selectedLayout = useSelectedLayoutSegment();
+	const { data: session } = useSession();
+	const user = session?.user;
 
+	if (session) {
+		console.log(session);
+	}
 	return (
 		<div
 			className={cn(
@@ -178,17 +184,26 @@ const Header = () => {
 					</div>
 				</div>
 
-				<div className='hidden md:block'>
+				<div className='hidden items-center md:flex'>
 					<Sheet>
 						<SheetTrigger>
-							<div className='h-8 w-8 rounded-full bg-zinc-300 flex items-center justify-center text-center hover:bg-zinc-100 md:cursor-pointer'>
-								<span className='font-semibold text-sm'>CP</span>
+							<div className='h-10 w-10 hover:shadow-inner self-center rounded-full overflow-hidden border border-black bg-zinc-300 flex items-center justify-center text-center hover:bg-zinc-100 md:cursor-pointer'>
+								<img
+									src={user?.image as string}
+									alt='User Profile Image'
+								/>
 							</div>
 						</SheetTrigger>
 						<SheetContent>
 							<SheetHeader>
-								<SheetTitle>Hello {user}!</SheetTitle>
-								<SheetDescription>Log Out</SheetDescription>
+								<SheetTitle>
+									Hello {user?.name ? user.name.split(' ')[0] : ''}!
+								</SheetTitle>
+								<SheetDescription>
+									<div className='w-full pt-4'>
+										<h2 className='text-3xl'>User Settings</h2>
+									</div>
+								</SheetDescription>
 							</SheetHeader>
 						</SheetContent>
 					</Sheet>

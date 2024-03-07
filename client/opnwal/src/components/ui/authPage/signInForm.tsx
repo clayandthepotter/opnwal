@@ -17,10 +17,11 @@ import {
 } from '@/components/global/form';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 const formSchema = z.object({
 	email: z.string().email(),
-	password: z.string().nonempty(),
+	// password: z.string().nonempty(),
 });
 
 export default function SignInForm() {
@@ -28,26 +29,15 @@ export default function SignInForm() {
 		resolver: zodResolver(formSchema),
 		defaultValues: {
 			email: '',
-			password: '',
+			// password: '',
 		},
 	});
 
-	const onSubmit = async (values: z.infer<typeof formSchema>) => {
-		const result = await signIn('credentials', {
-			redirect: false, // Prevent NextAuth from redirecting automatically
+	const onSubmit = (values: z.infer<typeof formSchema>) => {
+		signIn('email', {
 			email: values.email,
-			password: values.password,
-			callbackUrl: `${window.location.origin}/admin`, // Specify where to redirect after a successful login
+			callbackUrl: '/admin',
 		});
-
-		if (result?.error) {
-			// Handle errors, e.g., show an error message to the user
-			console.error(result.error);
-		} else {
-			// Redirect the user after successful login
-			const router = useRouter();
-			router.push(result?.url || '/admin');
-		}
 	};
 
 	return (
@@ -79,16 +69,15 @@ export default function SignInForm() {
               rounded-[30px]
               border
               border-black
-              overflow-scroll
               pb-10
 							min-w-[350px]
             '
 				>
 					<h1 className='text-5xl text-black mt-5 mb-3'>Sign In</h1>
-					{/* <p className='text-sm mt-3'>With Email</p> */}
+					{/* {/* <p className='text-sm mt-3'>With Email</p> */}
 					<div className='p-5 flex-col min-w-[300px]'>
-						{/* <hr className='border border-black w-full mb-5' /> */}
-						{/* <div className='flex w-full'>
+						{/* <hr className='border border-black w-full mb-5' />
+						<div className='flex w-full'>
 							<FormField
 								control={form.control}
 								name='email'
@@ -105,9 +94,9 @@ export default function SignInForm() {
 										<FormMessage />
 									</FormItem>
 								)}
-							/>
-						</div>
-						<div className='flex'>
+							/> */}
+						{/* </div> */}
+						{/* <div className='flex'>
 							<FormField
 								control={form.control}
 								name='password'
@@ -135,9 +124,9 @@ export default function SignInForm() {
 							>
 								Sign In
 							</Button>
-						</div> */}
-						{/* <hr className='border border-black w-full mt-5 mb-2' /> */}
-						{/* <p className='text-sm mb-3 text-center'>
+						</div>
+						<hr className='border border-black w-full mt-5 mb-2' />
+						<p className='text-sm mb-3 text-center'>
 							With Social Media
 						</p> */}
 						<GoogleSignInButton />

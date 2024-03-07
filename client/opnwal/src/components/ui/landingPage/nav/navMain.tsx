@@ -3,10 +3,13 @@
 import { Button } from '@/components/global/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import { signOut, useSession } from 'next-auth/react';
+import { signIn, signOut, useSession } from 'next-auth/react';
+// import { useRouter } from 'next/navigation';
 
 const NavMain = () => {
-	const { data: session } = useSession();
+	const { data: session, status } = useSession();
+	// const router = useRouter();
+	// const loading = status == 'loading';
 	console.log(session);
 	return (
 		<div
