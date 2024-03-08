@@ -12,7 +12,7 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/components/global/sheet';
-
+import { Button } from '@/components/global/button';
 import useScroll from '@/hooks/useScroll';
 import { cn } from '../../../../lib/utils';
 import Image from 'next/image';
@@ -202,6 +202,22 @@ const Header = () => {
 								<SheetDescription>
 									<div className='w-full pt-4'>
 										<h2 className='text-3xl'>User Settings</h2>
+										<div className='flex flex-col space-y-4 mt-10'>
+											<Link href={`/`}>
+												<p className='hover:text-blue-500'>Profile</p>
+											</Link>
+											<Link href='/admin/settings'>
+												<p className='hover:text-blue-500'>
+													Settings
+												</p>
+											</Link>
+											<Button
+												onClick={() => signOut()}
+												className='hover:text-blue-500'
+											>
+												Logout
+											</Button>
+										</div>
 									</div>
 								</SheetDescription>
 							</SheetHeader>

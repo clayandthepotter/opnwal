@@ -3,6 +3,7 @@ import HeaderMobile from '@/components/ui/dashboard/header/headerMobile';
 import PageWrapper from '@/components/ui/dashboard/global/pageWrapper';
 import { AuthProvider } from '@/app/context/AuthProvider';
 import { getServerSession } from 'next-auth';
+import { Toaster } from '@/components/global/toaster';
 
 export default async function Layout({
 	children,
@@ -18,6 +19,7 @@ export default async function Layout({
 						<Header />
 						<HeaderMobile />
 						<PageWrapper>{children}</PageWrapper>
+						<Toaster />
 					</AuthProvider>
 				</main>
 			</body>
