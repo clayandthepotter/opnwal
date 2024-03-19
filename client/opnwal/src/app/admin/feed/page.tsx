@@ -38,9 +38,11 @@ export default async function Feed() {
 				My Feed
 			</span>
 			{posts.map((post) => (
-				<div className='m-auto max-w-[400px] min-h-[770px] justify-self-center'>
+				<div
+					key={post.id}
+					className='m-auto max-w-[400px] min-h-[770px] justify-self-center'
+				>
 					<Post
-						key={post.id}
 						id={post.id.toString()}
 						title={post.title ? post.title : ''}
 						description={post.description ? post.description : ''}

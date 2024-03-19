@@ -147,7 +147,7 @@ const Header = () => {
 								<SheetTitle>Notifications</SheetTitle>
 								<SheetDescription>
 									{notifications.map((notification) => (
-										<div>{notification}</div>
+										<div key={notification}>{notification}</div>
 									))}
 								</SheetDescription>
 							</SheetHeader>
