@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const S5Image = () => {
 	return (
 		<motion.div
-			initial={{ opacity: 0, scale: 0.9, y: 30 }}
+			initial={{ opacity: 0, y: 30 }}
 			whileInView={{
 				opacity: 1,
 				scale: 1,
