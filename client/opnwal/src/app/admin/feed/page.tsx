@@ -37,7 +37,7 @@ export default async function Feed() {
 			<span className='font-bold text-4xl hidden md:m-auto max-w-[550px] justify-self-center'>
 				My Feed
 			</span>
-			{posts.map((post) => (
+			{posts.map((post: any) => (
 				<div
 					key={post.id}
 					className='m-auto max-w-[400px] min-h-[770px] justify-self-center'
