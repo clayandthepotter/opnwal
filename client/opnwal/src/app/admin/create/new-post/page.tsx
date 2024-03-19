@@ -6,7 +6,7 @@ const NewPost = () => {
 	return (
 		<div className='self-center justify-center mt-5'>
 			<h1 className='font-bold text-4xl w-full text-center mb-8'>
-				Create your new post
+				Create Post
 			</h1>
 			<CreatePostForm />
 		</div>
