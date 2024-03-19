@@ -22,9 +22,9 @@ import { signOut, useSession } from 'next-auth/react';
 
 // const user = 'User';
 const notifications = [
-	'Notification 1',
-	'Notification 2',
-	'Notification 3',
+	'@co.lector commented on your post',
+	'JeffsCoffeeHouse liked your post',
+	'You have a consignment request',
 ];
 
 const Header = () => {
