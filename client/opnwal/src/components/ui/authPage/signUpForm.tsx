@@ -27,85 +27,85 @@ import {
 
 const prisma = new PrismaClient();
 
-const formSchema = z
-	.object({
-		username: z
-			.string({
-				required_error: 'Please choose a username.',
-			})
-			.min(6, 'Minimum of 6 characters required')
-			.max(20),
-		userType: z.string({
-			required_error: 'Please choose a User Type.',
-		}),
-		firstName: z
-			.string({
-				required_error: 'Please enter your first name.',
-			})
-			.min(2, 'Minimum of two characters required')
-			.max(20),
-		lastName: z
-			.string({
-				required_error: 'Please enter your last name.',
-			})
-			.min(2, 'Minimum of two characters required')
-			.max(20),
-		phoneNumber: z
-			.string({
-				required_error: 'Please enter your phone number.',
-			})
-			.min(10, 'Minimum of ten characters required')
-			.max(15),
-		email: z
-			.string({
-				required_error: 'Please enter your email.',
-			})
-			.email('Invalid email address'),
-		password: z
-			.string()
-			.min(
-				8,
-				'Minimum requirements: 8 characters, 1 uppercase, 1 lowercase, 1 number, and 1 special character.'
-			)
-			.regex(
-				/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,}$/
-			),
-		confirmPassword: z.string(),
-	})
-	.refine((data) => data.password === data.confirmPassword, {
-		message: "Passwords don't match",
-		path: ['confirmPassword'], // This specifies that the error should be associated with the confirmPassword field
-	});
+// const formSchema = z
+// 	.object({
+// 		username: z
+// 			.string({
+// 				required_error: 'Please choose a username.',
+// 			})
+// 			.min(6, 'Minimum of 6 characters required')
+// 			.max(20),
+// 		userType: z.string({
+// 			required_error: 'Please choose a User Type.',
+// 		}),
+// 		firstName: z
+// 			.string({
+// 				required_error: 'Please enter your first name.',
+// 			})
+// 			.min(2, 'Minimum of two characters required')
+// 			.max(20),
+// 		lastName: z
+// 			.string({
+// 				required_error: 'Please enter your last name.',
+// 			})
+// 			.min(2, 'Minimum of two characters required')
+// 			.max(20),
+// 		phoneNumber: z
+// 			.string({
+// 				required_error: 'Please enter your phone number.',
+// 			})
+// 			.min(10, 'Minimum of ten characters required')
+// 			.max(15),
+// 		email: z
+// 			.string({
+// 				required_error: 'Please enter your email.',
+// 			})
+// 			.email('Invalid email address'),
+// 		password: z
+// 			.string()
+// 			.min(
+// 				8,
+// 				'Minimum requirements: 8 characters, 1 uppercase, 1 lowercase, 1 number, and 1 special character.'
+// 			)
+// 			.regex(
+// 				/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,}$/
+// 			),
+// 		confirmPassword: z.string(),
+// 	})
+// 	.refine((data) => data.password === data.confirmPassword, {
+// 		message: "Passwords don't match",
+// 		path: ['confirmPassword'], // This specifies that the error should be associated with the confirmPassword field
+// 	});
 
 export default function SignUpForm() {
-	const form = useForm<z.infer<typeof formSchema>>({
-		resolver: zodResolver(formSchema),
-		defaultValues: {
-			username: '',
-			userType: '',
-			firstName: '',
-			lastName: '',
-			phoneNumber: '',
-			email: '',
-			password: '',
-			confirmPassword: '',
-		},
-	});
+	// const form = useForm<z.infer<typeof formSchema>>({
+	// 	resolver: zodResolver(formSchema),
+	// 	defaultValues: {
+	// 		username: '',
+	// 		userType: '',
+	// 		firstName: '',
+	// 		lastName: '',
+	// 		phoneNumber: '',
+	// 		email: '',
+	// 		password: '',
+	// 		confirmPassword: '',
+	// 	},
+	// });
 
-	const onSubmit = async (values: z.infer<typeof formSchema>) => {
-		await prisma.user.create({
-			data: {
-				username: values.username,
-				userType: values.userType,
-				firstName: values.firstName,
-				lastName: values.lastName,
-				phoneNumber: values.phoneNumber,
-				email: values.email,
-				password: values.password,
-			},
-		});
-		console.log(values);
-	};
+	// const onSubmit = async (values: z.infer<typeof formSchema>) => {
+	// 	await prisma.user.create({
+	// 		data: {
+	// 			username: values.username,
+	// 			userType: values.userType,
+	// 			firstName: values.firstName,
+	// 			lastName: values.lastName,
+	// 			phoneNumber: values.phoneNumber,
+	// 			email: values.email,
+	// 			password: values.password,
+	// 		},
+	// 	});
+	// 	console.log(values);
+	// };
 
 	// const [isVisible, setIsVisible] = useState(false);
 
@@ -123,11 +123,11 @@ export default function SignUpForm() {
 					overflow-auto
 				'
 		>
-			<Form {...form}>
-				<form
-					onSubmit={form.handleSubmit(onSubmit)}
-					id='signupForm'
-					className='
+			{/* <Form {...form}> */}
+			<form
+				// onSubmit={form.handleSubmit(onSubmit)}
+				id='signupForm'
+				className='
               relative
               p-5
               flex
@@ -141,8 +141,8 @@ export default function SignUpForm() {
               overflow-auto
               pb-10
             '
-				>
-					<h1 className='text-5xl text-black mt-3 mb-5 mx-1'>
+			>
+				{/* <h1 className='text-5xl text-black mt-3 mb-5 mx-1'>
 						Sign Up
 					</h1>
 					<p className='text-sm'>With Email</p>
@@ -317,28 +317,26 @@ export default function SignUpForm() {
 							>
 								Register
 							</Button>
-						</div>
-						<div className='flex items-center mt-5'>
-							<hr className='border border-black w-full' />
-							<p className='text-sm m-2'>Or</p>
-							<hr className='border border-black w-full' />
-						</div>
-						<p className='text-sm mb-7 text-center'>
-							With Social Media
-						</p>
-						<GoogleSignUpButton />
-						<p className='text-sm mt-5 text-center'>
-							Already have an account?{' '}
-							<Link
-								href={'/sign-in'}
-								className='decoration-underline text-primaryBlue hover:underline'
-							>
-								Sign In
-							</Link>
-						</p>
-					</div>
-				</form>
-			</Form>
+						</div> */}
+				<div className='flex items-center mt-5'>
+					<hr className='border border-black w-full' />
+					<p className='text-sm m-2'>Or</p>
+					<hr className='border border-black w-full' />
+				</div>
+				<p className='text-sm mb-7 text-center'>With Social Media</p>
+				<GoogleSignUpButton />
+				<p className='text-sm mt-5 text-center'>
+					Already have an account?{' '}
+					<Link
+						href={'/sign-in'}
+						className='decoration-underline text-primaryBlue hover:underline'
+					>
+						Sign In
+					</Link>
+				</p>
+				{/* </div> */}
+			</form>
+			{/* </Form> */}
 		</div>
 	);
 }
