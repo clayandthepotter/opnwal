@@ -319,9 +319,9 @@ export default function SignUpForm() {
 							</Button>
 						</div> */}
 				<div className='flex items-center mt-5'>
-					<hr className='border border-black w-full' />
-					<p className='text-sm m-2'>Or</p>
-					<hr className='border border-black w-full' />
+					<h1 className='text-5xl text-black mt-3 mb-5 mx-1'>
+						Sign Up With Google
+					</h1>
 				</div>
 				<p className='text-sm mb-7 text-center'>With Social Media</p>
 				<GoogleSignUpButton />

@@ -15,7 +15,7 @@ export const options = {
 		// 	from: process.env.EMAIL_FROM,
 		// }),
 	],
-	// secret: process.env.NEXTAUTH_SECRET,
+	secret: process.env.NEXTAUTH_SECRET,
 	// adapter: PrismaAdapter(db),
 	// session: {
 	// 	strategy: 'database',
