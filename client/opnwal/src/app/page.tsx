@@ -29,9 +29,18 @@ const LandingPage = () => {
 		<SessionProvider>
 			<div
 				id='landing-page-body'
-				className='bg-gradient-to-br from-sky-100 via-pink-100 to-amber-100'
+				className='
+						p-[3vw]
+						bg-gradient-to-br
+						from-sky-200
+						via-pink-200
+						to-amber-200'
 			>
-				<div className='p-5 max-w-[1400px] m-auto self-center'>
+				<div
+					className='
+						m-auto 
+						self-center'
+				>
 					{/* HEADER */}
 					<motion.div
 						initial={{ opacity: 0, y: -70 }}
@@ -48,7 +57,6 @@ const LandingPage = () => {
 					{/* MAIN CONTENT */}
 					<main
 						className='
-							max-w-[1280px]
 							m-auto
 							grid-col-1
 							grid-row-1'
@@ -58,23 +66,17 @@ const LandingPage = () => {
 							id='hero-section'
 							className='
 										m-auto
-										mobileLG:h-[300px]
-										xxs:h-[360px]
-										xs:h-[425px]
-										sm:h-[500px]
-										md:h-[500px]
-										lg:h-[600px]
-										xl:h-[750px]
-			
+										h-[42vw]
+										w-full
+										min-h-[300px]
 										grid
-										grid-cols-8
-										grid-rows-5
-										place-items-center'
+										grid-col-1
+										grid-row-1'
 						>
 							<HeroHeading />
 							<HeroDescription />
 							<HeroButton />
-							<Asterisk1 />
+							{/* <Asterisk1 /> */}
 							<HeroImage />
 						</section>
 						{/* SECTION 2 */}
@@ -106,6 +108,7 @@ const LandingPage = () => {
 							<Squiggle2 />
 							<S3ContentDiv />
 						</section>
+
 						{/* FAQs SECTION */}
 						<section
 							id='faqsSection'

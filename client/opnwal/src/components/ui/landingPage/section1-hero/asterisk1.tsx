@@ -21,17 +21,18 @@ const Asterisk1 = () => {
         relative
         justify-self-center
         self-end
-        col-start-3
-        col-end-6
-        row-start-4
-        row-end-6
         min-w-max
+				w-[10vw]
         h-auto
 				m-11
+				col-start-1
+				col-end-2
+				row-start-1
+				row-end-2
       '
 		>
 			<Image
-				className='relative'
+				className='relative w-[10vw]'
 				src='/asterisks/asterisk191px-noShadow_1.svg'
 				width='191'
 				height='191'

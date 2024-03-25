@@ -4,9 +4,9 @@ const S5ImageWrapper = ({ children }: any) => {
 	return (
 		<motion.div
 			id='imageContainer'
-			initial={{ opacity: 0}}
+			initial={{ opacity: 0 }}
 			whileInView={{
-				opacity: 1
+				opacity: 1,
 			}}
 			transition={{
 				delay: 2,
@@ -15,8 +15,12 @@ const S5ImageWrapper = ({ children }: any) => {
 			}}
 			viewport={{ once: true }}
 			className='
-										h-[1028px]
-										w-[1028px]
+										min-h-[400px]
+										max-h-[1028px]
+										max-w-[1028px]
+										w-[90vw]
+										h-auto
+										p-[3vw]
 										flex
 										rounded-t-full
 										bg-primaryBlue

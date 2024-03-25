@@ -21,8 +21,8 @@ const S4HeadingDiv = () => {
 											col-end-1
 											row-start-1
 											flex
-											w-[808px]
-											h-[197px]
+											max-w-[808px]
+											max-h-[197px]
 											z-20
 											mt-28
 											mx-auto

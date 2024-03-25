@@ -22,8 +22,10 @@ const S5Image = () => {
 											flex
 											self-center
 											m-auto
-											h-[857px]
-											w-[857px]
+											max-h-[857px]
+											max-w-[857px]
+											w-full
+											h-full
 											rounded-t-full
 											border
 											border-black

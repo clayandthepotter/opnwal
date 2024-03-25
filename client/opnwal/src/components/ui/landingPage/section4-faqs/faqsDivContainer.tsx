@@ -15,7 +15,7 @@ export const FaqsDivContainer = () => {
         row-start-1
         self-start
         justify-self-center
-        w-[1036px]
+        max-w-[1036px]
         h-auto
         z-15
         bg-primaryBlue

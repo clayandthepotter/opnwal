@@ -20,7 +20,8 @@ const S2MainContent = () => {
 			viewport={{ once: true }}
 			className='
 							drop-shadow-2xl
-							w-[962px] 
+							w-[90vw]
+							max-w-[962px] 
 							h-[500px]
 							self-start
 							justify-self-start
@@ -48,7 +49,8 @@ const S2MainContent = () => {
 			>
 				<TextGenerateEffect
 					className='
-										text-8xl
+										text-2xl
+										md:text-8xl
 										max-w-[800px]
 										font-normal'
 					words={'What is Opnwal?'}
